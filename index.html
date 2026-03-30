@@ -1,89 +1,173 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <title>The Maestro Empire | 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #000; /* خلفية سوداء فخمة */
+            background-color: #000;
             margin: 0;
-            height: 100vh;
+            min-height: 100vh;
+            color: #C19A6B; /* اللون البيج النحاسي */
+            font-family: 'Montserrat', sans-serif;
             display: flex;
-            justify-content: center; /* التوسط الأفقي */
-            align-items: center;     /* التوسط الرأسي */
-            font-family: 'Times New Roman', serif;
-        }
-
-        /* حاوية التصميم الملمومة */
-        .brand-identity {
+            flex-direction: column;
+            align-items: center;
             position: relative;
-            text-align: center;
-            color: #b8860b; /* ذهبي ملكي */
-            padding: 20px;
-            border: 1px solid rgba(184, 134, 11, 0.2); /* إطار خفيف جداً لإغلاق الهوامش */
         }
 
-        /* 1. اللوجو (الـ H جوه الدايرة) كرمز علوي */
-        .logo-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 15px;
-        }
-
-        /* 2. اسم الشركة (الخط الفرنساوي/الكلاسيكي) */
-        .company-name {
-            font-size: 45px;
-            margin: 0;
-            font-style: italic;
-            letter-spacing: 2px;
-        }
-
-        /* 3. الخط المشدود (العصاية) */
-        .separator-line {
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(to right, transparent, #b8860b, transparent);
-            margin: 15px 0;
-        }
-
-        /* 4. تفاصيل التأسيس والماركة */
-        .foundation-tag {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            opacity: 0.8;
-        }
-
-        /* 5. العلامة المائية (H ضخمة في الخلفية) */
-        .watermark {
-            position: absolute;
+        /* 1. العلامة المائية: H العملاقة في الخلفية (باهتة جداً) */
+        body::before {
+            content: "H";
+            position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 400px;
-            color: #111; /* باهتة جداً */
-            z-index: -1;
+            font-size: 90vh;
+            color: rgba(193, 154, 107, 0.02); /* شفافة جداً (أثر خفيف) */
+            z-index: 0;
             user-select: none;
+            font-weight: bold;
         }
+
+        /* حاوية التصميم الأساسية */
+        main {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        /* 2. كتلة اللوجو الملمومة في المربع الأسمر */
+        .logo-cluster {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 1px solid rgba(193, 154, 107, 0.2);
+            padding: 20px 40px;
+            background-color: #000;
+            margin-bottom: 30px;
+        }
+
+        .company-name {
+            font-family: 'Great Vibes', cursive;
+            font-size: 36px;
+            color: #b8860b;
+            margin: 0;
+            line-height: 1;
+        }
+
+        /* الدايرة الصغيرة اللي فيها H (نزلت تحت) */
+        .small-h-circle {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #b8860b;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .small-h-circle text {
+            fill: #b8860b;
+            font-size: 24px;
+            font-family: serif;
+        }
+
+        .premium-tag {
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(193, 154, 107, 0.8);
+            margin: 0;
+        }
+
+        /* 3. شبكة الصور الـ 10 (النظارات، الساعات، البرفانات) */
+        .product-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .product-card {
+            background-color: #0a0a0a;
+            border: 1px solid rgba(193, 154, 107, 0.1);
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            transition: 0.3s;
+            text-align: center;
+        }
+        .product-card:hover {
+            border-color: #b8860b;
+            background-color: #111;
+        }
+
+        .product-placeholder {
+            width: 100%;
+            height: 70%;
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #444;
+            font-size: 40px;
+        }
+
+        .product-title {
+            font-size: 14px;
+            margin: 10px 0 0;
+            letter-spacing: 1px;
+        }
+
     </style>
 </head>
 <body>
 
-    <div class="watermark">H</div>
-
-    <div class="brand-identity">
-        <div class="logo-icon">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="45" stroke="#b8860b" stroke-width="2" fill="none" />
-                <text x="50" y="68" font-family="serif" font-size="50" text-anchor="middle" fill="#b8860b">H</text>
-            </svg>
+    <main>
+        <div class="logo-cluster">
+            <h1 class="company-name">The Maestro</h1> <div class="small-h-circle"> <svg viewBox="0 0 100 100">
+                    <text x="50" y="70" text-anchor="middle">H</text>
+                </svg>
+            </div>
+            
+            <p class="premium-tag">Premium Brand • Est. 2026</p>
         </div>
 
-        <h1 class="company-name">The Maestro</h1>
-
-        <div class="separator-line"></div>
-
-        <div class="foundation-tag">Premium Brand • Est. 2026</div>
-    </div>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-placeholder">👓</div>
+                <div class="product-title">نظارات شمسية</div>
+            </div>
+            <div class="product-card">
+                <div class="product-placeholder">⌚</div>
+                <div class="product-title">ساعات فاخرة</div>
+            </div>
+            <div class="product-card">
+                <div class="product-placeholder">✨</div>
+                <div class="product-title">عطور ملكية</div>
+            </div>
+            <div class="product-card"><div class="product-placeholder">📦</div><div class="product-title">قسم 4</div></div>
+            <div class="product-card"><div class="product-placeholder">📦</div><div class="product-title">قسم 5</div></div>
+            <div class="product-card"><div class="product-placeholder">📦</div><div class="product-title">قسم 6</div></div>
+            <div class="product-card"><div class="product-placeholder">📦</div><div class="product-title">قسم 7</div></div>
+            <div class="product-card"><div class="product-placeholder">📦</div><div class="product-title">قسم 8</div></div>
+            <div class="product-card"><div class="product-placeholder">📦</div><div class="product-title">قسم 9</div></div>
+            <div class="product-card"><div class="product-placeholder">📦</div><div class="product-title">قسم 10</div></div>
+        </div>
+    </main>
 
 </body>
 </html>
