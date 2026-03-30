@@ -3,42 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إمبراطورية المايسترو - Maestro-Empire</title>
+    <title>إمبراطورية المايسترو - Maestro Empire</title>
     <style>
-        body { background-color: #0b0e14; color: #e6edf3; font-family: sans-serif; text-align: center; margin: 0; padding: 20px; }
-        .header { padding: 30px; background: #161b22; border-radius: 20px; margin-bottom: 20px; border: 1px solid #d4af37; }
-        h1 { color: #d4af37; font-size: 2.5em; margin: 0; }
-        .main-banner { width: 100%; max-width: 850px; border-radius: 15px; margin-bottom: 30px; border: 2px solid #d4af37; box-shadow: 0 0 20px rgba(212,175,55,0.4); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
-        .card { background: #161b22; border-radius: 15px; overflow: hidden; border: 1px solid #30363d; }
-        .card img { width: 100%; height: auto; display: block; }
-        .footer { margin-top: 50px; color: #8b949e; font-size: 0.9em; }
+        body { background-color: #0b0e14; color: white; font-family: Arial, sans-serif; text-align: center; margin: 0; padding: 0; }
+        .header { padding: 40px 20px; background: linear-gradient(145deg, #161b22, #0b0e14); border-bottom: 2px solid #d4af37; }
+        h1 { color: #d4af37; font-size: 2.8em; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .description { color: #aeb9c7; font-size: 1.2em; margin-top: 15px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 30px; max-width: 1200px; margin: 0 auto; }
+        .card { background: #161b22; border: 1px solid #30363d; border-radius: 15px; overflow: hidden; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); border-color: #d4af37; }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card-text { padding: 15px; font-weight: bold; color: #d4af37; border-top: 1px solid #30363d; }
+        .footer { padding: 30px; color: #8b949e; font-size: 0.9em; }
     </style>
 </head>
 <body>
 
     <div class="header">
         <h1>إمبراطورية المايسترو</h1>
-        <p>إدارة: مؤمن محمد (Moamen Mohamed)</p>
-        <p>عطور فخمة • قصات عالمية • سيجار • نظارات وسيارات</p>
+        <p class="description">عطور فاخرة • قصات عالمية • سيجار • نظارات • سيارات</p>
     </div>
-
-    <img src="https://raw.githubusercontent.com/Maestro-Empire/maestro-store/main/image_18.png" class="main-banner">
 
     <div class="grid">
-        <div class="card"><img src="https://raw.githubusercontent.com/Maestro-Empire/maestro-store/main/image_2.png"></div>
-        <div class="card"><img src="https://raw.githubusercontent.com/Maestro-Empire/maestro-store/main/image_2.png"></div>
-        <div class="card"><img src="https://raw.githubusercontent.com/Maestro-Empire/maestro-store/main/image_2.png"></div>
-        <div class="card"><img src="https://raw.githubusercontent.com/Maestro-Empire/maestro-store/main/image_2.png"></div>
-        <div class="card"><img src="https://raw.githubusercontent.com/Maestro-Empire/maestro-store/main/image_2.png"></div>
-        <div class="card"><img src="https://raw.githubusercontent.com/Maestro-Empire/maestro-store/main/image_2.png"></div>
-        <div class="card"><img src="https://raw.githubusercontent.com/Maestro-Empire/maestro-store/main/image_2.png"></div>
-        <div class="card"><img src="https://raw.githubusercontent.com/Maestro-Empire/maestro-store/main/image_2.png"></div>
-        <div class="card"><img src="https://raw.githubusercontent.com/Maestro-Empire/maestro-store/main/image_2.png"></div>
-        <div class="card"><img src="https://raw.githubusercontent.com/Maestro-Empire/maestro-store/main/image_2.png"></div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=500" alt="عطور">
+            <div class="card-text">عطور فاخرة</div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500" alt="سيارات">
+            <div class="card-text">سيارات فارهة</div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1510132334053-157930969623?w=500" alt="سيجار">
+            <div class="card-text">سيجار أصلي</div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500" alt="نظارات">
+            <div class="card-text">نظارات عالمية</div>
+        </div>
     </div>
 
-    <div class="footer">© 2026 Maestro-Empire</div>
+    <div class="footer">
+        &copy; 2026 إمبراطورية المايسترو - جميع الحقوق محفوظة
+    </div>
 
 </body>
 </html>
