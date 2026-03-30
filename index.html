@@ -3,61 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إمبراطورية المايسترو | MAESTRO 2026</title>
+    <title>MAESTRO EMPIRE 2026</title>
     <style>
         :root { --gold: #c5a059; --dark: #0b0e14; --card-bg: #161b22; }
         body { background-color: var(--dark); color: white; font-family: 'Segoe UI', sans-serif; text-align: center; margin: 0; padding-bottom: 50px; }
         
-        /* الهيدر */
         .header { padding: 40px 20px; background: #1c2128; border-bottom: 3px solid var(--gold); }
         .header h1 { color: var(--gold); font-size: 2.2rem; margin: 0; letter-spacing: 5px; }
 
-        /* شريط التنقل */
-        .tab-bar { display: flex; justify-content: center; background: #1c2128; padding: 10px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #30363d; overflow-x: auto; }
-        .tab-link { background: none; border: none; color: #8b949e; padding: 10px 20px; cursor: pointer; font-size: 1rem; font-weight: bold; white-space: nowrap; }
+        .tab-bar { display: flex; justify-content: center; background: #1c2128; padding: 10px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #30363d; }
+        .tab-link { background: none; border: none; color: #8b949e; padding: 10px 20px; cursor: pointer; font-size: 1.1rem; font-weight: bold; }
         .tab-link.active { color: var(--gold); border-bottom: 2px solid var(--gold); }
 
-        /* محتوى الأقسام */
         .content-section { display: none; padding: 30px 10px; animation: fadeIn 0.5s; }
         .content-section.active { display: block; }
 
-        /* تنسيق 2 في كل صف */
+        /* التنسيق الذهبي: 2 في كل صف */
         .grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr); 
             gap: 20px;
-            max-width: 600px;
+            max-width: 500px; /* تضييق العرض عشان الـ 2 يبقوا متناسقين */
             margin: 0 auto;
         }
 
-        /* الكارت الفخم */
         .card { background-color: var(--card-bg); border: 1px solid #30363d; border-radius: 20px; padding: 15px; transition: 0.3s; }
         .card img { 
-            width: 130px; height: 130px; border-radius: 50%; 
+            width: 140px; height: 140px; border-radius: 50%; 
             object-fit: cover; border: 3px solid var(--gold); margin-bottom: 15px; 
         }
 
         .card-title { color: var(--gold); font-weight: bold; margin-bottom: 10px; font-size: 0.9rem; }
 
-        /* زرار اللايك */
         .like-btn { 
             background: none; border: 1px solid var(--gold); color: var(--gold); 
-            padding: 6px 15px; border-radius: 20px; cursor: pointer; font-size: 0.8rem;
+            padding: 7px 18px; border-radius: 20px; cursor: pointer; font-size: 0.85rem;
         }
         .like-btn.liked { background: var(--gold); color: black; }
 
-        /* السوشيال ميديا */
         .social-footer { margin-top: 50px; padding: 20px; border-top: 1px solid #30363d; }
-        .social-icon { color: var(--gold); text-decoration: none; margin: 0 10px; font-weight: bold; font-size: 0.9rem; }
+        .social-icon { color: var(--gold); text-decoration: none; margin: 0 10px; font-weight: bold; }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>إمبراطورية المايسترو</h1>
-    </div>
+    <div class="header"><h1>إمبراطورية المايسترو</h1></div>
 
     <div class="tab-bar">
         <button class="tab-link active" onclick="openTab('glasses')">النظارات</button>
@@ -65,17 +57,9 @@
         <button class="tab-link" onclick="openTab('watches')">الساعات</button>
     </div>
 
-    <div id="glasses" class="content-section active">
-        <div class="grid" id="glasses-grid"></div>
-    </div>
-
-    <div id="perfumes" class="content-section">
-        <div class="grid" id="perfumes-grid"></div>
-    </div>
-
-    <div id="watches" class="content-section">
-        <div class="grid" id="watches-grid"></div>
-    </div>
+    <div id="glasses" class="content-section active"><div class="grid" id="glasses-grid"></div></div>
+    <div id="perfumes" class="content-section"><div class="grid" id="perfumes-grid"></div></div>
+    <div id="watches" class="content-section"><div class="grid" id="watches-grid"></div></div>
 
     <div class="social-footer">
         <p style="color: #8b949e;">تواصل مع المايسترو:</p>
@@ -85,61 +69,46 @@
     </div>
 
     <script>
-        // مصفوفات الصور المختلفة فعلياً (10 صور لكل نوع)
-        const data = {
+        // مصفوفات الصور لضمان عدم التكرار
+        const images = {
             glasses: [
-                'https://images.pexels.com/photos/701877/pexels-photo-701877.jpeg?w=300',
-                'https://images.pexels.com/photos/46710/pexels-photo-46710.jpeg?w=300',
-                'https://images.pexels.com/photos/1499477/pexels-photo-1499477.jpeg?w=300',
-                'https://images.pexels.com/photos/1362550/pexels-photo-1362550.jpeg?w=300',
-                'https://images.pexels.com/photos/1549004/pexels-photo-1549004.jpeg?w=300',
-                'https://images.pexels.com/photos/39716/sunglasses-glasses-dark-glasses-shades-39716.jpeg?w=300',
-                'https://images.pexels.com/photos/185764/pexels-photo-185764.jpeg?w=300',
-                'https://images.pexels.com/photos/2811088/pexels-photo-2811088.jpeg?w=300',
-                'https://images.pexels.com/photos/1493108/pexels-photo-1493108.jpeg?w=300',
-                'https://images.pexels.com/photos/165448/pexels-photo-165448.jpeg?w=300'
+                'https://images.pexels.com/photos/701877/pexels-photo-701877.jpeg?w=200', 'https://images.pexels.com/photos/46710/pexels-photo-46710.jpeg?w=200',
+                'https://images.pexels.com/photos/1499477/pexels-photo-1499477.jpeg?w=200', 'https://images.pexels.com/photos/1362550/pexels-photo-1362550.jpeg?w=200',
+                'https://images.pexels.com/photos/1549004/pexels-photo-1549004.jpeg?w=200', 'https://images.pexels.com/photos/39716/sunglasses-glasses-dark-glasses-shades-39716.jpeg?w=200',
+                'https://images.pexels.com/photos/185764/pexels-photo-185764.jpeg?w=200', 'https://images.pexels.com/photos/2811088/pexels-photo-2811088.jpeg?w=200',
+                'https://images.pexels.com/photos/1493108/pexels-photo-1493108.jpeg?w=200', 'https://images.pexels.com/photos/165448/pexels-photo-165448.jpeg?w=200'
             ],
             perfumes: [
-                'https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?w=300',
-                'https://images.pexels.com/photos/1961795/pexels-photo-1961795.jpeg?w=300',
-                'https://images.pexels.com/photos/1556706/pexels-photo-1556706.jpeg?w=300',
-                'https://images.pexels.com/photos/258244/pexels-photo-258244.jpeg?w=300',
-                'https://images.pexels.com/photos/932577/pexels-photo-932577.jpeg?w=300',
-                'https://images.pexels.com/photos/755992/pexels-photo-755992.jpeg?w=300',
-                'https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg?w=300',
-                'https://images.pexels.com/photos/2701570/pexels-photo-2701570.jpeg?w=300',
-                'https://images.pexels.com/photos/3059609/pexels-photo-3059609.jpeg?w=300',
-                'https://images.pexels.com/photos/264950/pexels-photo-264950.jpeg?w=300'
+                'https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?w=200', 'https://images.pexels.com/photos/1961795/pexels-photo-1961795.jpeg?w=200',
+                'https://images.pexels.com/photos/1556706/pexels-photo-1556706.jpeg?w=200', 'https://images.pexels.com/photos/258244/pexels-photo-258244.jpeg?w=200',
+                'https://images.pexels.com/photos/932577/pexels-photo-932577.jpeg?w=200', 'https://images.pexels.com/photos/755992/pexels-photo-755992.jpeg?w=200',
+                'https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg?w=200', 'https://images.pexels.com/photos/2701570/pexels-photo-2701570.jpeg?w=200',
+                'https://images.pexels.com/photos/3059609/pexels-photo-3059609.jpeg?w=200', 'https://images.pexels.com/photos/264950/pexels-photo-264950.jpeg?w=200'
             ],
             watches: [
-                'https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?w=300',
-                'https://images.pexels.com/photos/2113994/pexels-photo-2113994.jpeg?w=300',
-                'https://images.pexels.com/photos/277390/pexels-photo-277390.jpeg?w=300',
-                'https://images.pexels.com/photos/280250/pexels-photo-280250.jpeg?w=300',
-                'https://images.pexels.com/photos/1152331/pexels-photo-1152331.jpeg?w=300',
-                'https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?w=300',
-                'https://images.pexels.com/photos/236915/pexels-photo-236915.jpeg?w=300',
-                'https://images.pexels.com/photos/380782/pexels-photo-380782.jpeg?w=300',
-                'https://images.pexels.com/photos/2783873/pexels-photo-2783873.jpeg?w=300',
-                'https://images.pexels.com/photos/1257733/pexels-photo-1257733.jpeg?w=300'
+                'https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?w=200', 'https://images.pexels.com/photos/2113994/pexels-photo-2113994.jpeg?w=200',
+                'https://images.pexels.com/photos/277390/pexels-photo-277390.jpeg?w=200', 'https://images.pexels.com/photos/280250/pexels-photo-280250.jpeg?w=200',
+                'https://images.pexels.com/photos/1152331/pexels-photo-1152331.jpeg?w=200', 'https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?w=200',
+                'https://images.pexels.com/photos/236915/pexels-photo-236915.jpeg?w=200', 'https://images.pexels.com/photos/380782/pexels-photo-380782.jpeg?w=200',
+                'https://images.pexels.com/photos/2783873/pexels-photo-2783873.jpeg?w=200', 'https://images.pexels.com/photos/1257733/pexels-photo-1257733.jpeg?w=200'
             ]
         };
 
-        function render(type, containerId, prefix) {
-            const container = document.getElementById(containerId);
-            data[type].forEach((url, i) => {
-                container.innerHTML += `
+        function draw(type, gridId, label) {
+            const grid = document.getElementById(gridId);
+            images[type].forEach((url, index) => {
+                grid.innerHTML += `
                     <div class="card">
                         <img src="${url}">
-                        <div class="card-title">${prefix} ${i + 1}</div>
+                        <div class="card-title">${label} ${index + 1}</div>
                         <button class="like-btn" onclick="toggleLike(this)">❤️ أعجبني</button>
                     </div>`;
             });
         }
 
-        render('glasses', 'glasses-grid', 'نظارة فاخرة');
-        render('perfumes', 'perfumes-grid', 'عطر ملكي');
-        render('watches', 'watches-grid', 'ساعة أصلية');
+        draw('glasses', 'glasses-grid', 'نظارة');
+        draw('perfumes', 'perfumes-grid', 'عطر');
+        draw('watches', 'watches-grid', 'ساعة');
 
         function openTab(name) {
             let sections = document.getElementsByClassName("content-section");
@@ -152,7 +121,7 @@
 
         function toggleLike(btn) {
             btn.classList.toggle('liked');
-            btn.innerHTML = btn.classList.contains('liked') ? "✅ تم" : "❤️ أعجبني";
+            btn.innerHTML = btn.classList.contains('liked') ? "✅ تم الإعجاب" : "❤️ أعجبني";
         }
     </script>
 </body>
