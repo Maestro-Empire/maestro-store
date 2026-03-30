@@ -3,53 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAESTRO EMPIRE | THE SILVER SEAL</title>
+    <title>MAESTRO EMPIRE | THE ULTIMATE LOGO</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel&display=swap" rel="stylesheet">
     <style>
         :root { 
-            --silver-base: #c0c0c0; /* فضي معدني أساسي (Silver) */
-            --silver-shine: #ffffff; /* فضي فاتح لامع للإضاءة (White) */
-            --silver-shadow: #808080; /* فضي داكن للظل (Gray) */
+            --gold-base: #b8860b; /* ذهبي ملكي غامق ونحاسي (Dark Goldenrod) - لون العملات والأسهم */
+            --gold-shine: #ffd700; /* ذهبي فاتح لامع للإضاءة (Gold) */
+            --gold-shadow: #8b6508; /* ذهبي داكن للظل (Dark Goldenrod) */
             --void-black: #020202; /* أسود قاتم جداً (أعمق من الفحم) - خلفية فخمة */
         }
         
         body { background-color: var(--void-black); margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden;}
 
-        /* حاوية الشعار الفضي المتكامل */
-        .silver-brand-container { text-align: center; position: relative; }
+        /* حاوية الشعار المتكامل */
+        .ultimate-brand-container { text-align: center; position: relative; }
 
-        /* 👑 1. الرمز الملكي العالمي (The Silver Emblem) */
+        /* 👑 1. الرمز الملكي العالمي (The Ultimate Emblem) */
         .global-emblem {
             position: relative;
             width: 250px; /* مقاس فخم للشعار */
             height: 250px;
             margin: 0 auto 40px;
-            border: 4px solid var(--silver-base); /* إطار فضي سميك وقوي (الكرة الأرضية) */
+            border: 4px solid var(--gold-base); /* إطار ذهبي سميك وقوي (الكرة الأرضية) */
             border-radius: 50%; /* شكل الكرة الأرضية والدائرة المحكمة */
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 0 80px rgba(192, 192, 192, 0.3); /* ظل فضي عميق */
-            background: rgba(192, 192, 192, 0.05); /* تفرغ خلفي خفيف */
+            box-shadow: 0 0 80px rgba(184, 134, 11, 0.3); /* ظل ذهبي عميق */
+            background: rgba(184, 134, 11, 0.05); /* تفرغ خلفي خفيف */
             overflow: hidden; /* لاحتواء العناصر */
         }
         
-        /* تأثير خطوط الطول والعرض للكرة الأرضية (الفضية) */
-        .global-emblem::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: repeating-linear-gradient(90deg, transparent, transparent 15px, rgba(192, 192, 192, 0.1) 16px),
-                        repeating-linear-gradient(0deg, transparent, transparent 15px, rgba(192, 192, 192, 0.1) 16px);
-            opacity: 0.5;
-        }
-        
-        /* 🖋️ حرف H (البارز والسميك) - فخامة الفرنسية الفضية */
+        /* 🖋️ حرف H (البارز والسميك) - فخامة الفرنسية الذهبية */
         .emblem-h {
             font-family: 'Great Vibes', cursive; /* خط فرنسي انسيابي كأنه توقيع ريشة - تخانة وفخامة */
-            color: var(--silver-base); /* لون الحرف الأساسي فضي */
+            color: var(--gold-base); /* لون الحرف الأساسي ذهبي */
             font-size: 10rem; /* مقاس ضخم جداً وبارز */
             margin: 0;
             line-height: 1;
@@ -57,43 +45,43 @@
             position: relative;
             z-index: 10;
             
-            /* تأثير البروز واللمعان الفضي (Emboss & Bevel) */
+            /* تأثير البروز واللمعان الذهبي (Emboss & Bevel) */
             text-shadow: 
                 /* إضاءة علوية (البروز لبره) */
-                -1px -1px 1px var(--silver-shine), 
-                -2px -2px 2px var(--silver-shine),
+                -1px -1px 1px var(--gold-shine), 
+                -2px -2px 2px var(--gold-shine),
                 
                 /* ظل سفلي (العمق لبره) */
-                1px 1px 1px var(--silver-shadow),
-                2px 2px 2px var(--silver-shadow),
-                3px 3px 3px var(--silver-shadow),
+                1px 1px 1px var(--gold-shadow),
+                2px 2px 2px var(--gold-shadow),
+                3px 3px 3px var(--gold-shadow),
                 
                 /* ظل عميق خلفي لإبراز الحرف عن الخلفية */
                 5px 5px 15px rgba(0,0,0,0.8);
         }
 
-        /* 👑 التاج فوق الرمز العالمي (الفضي) */
+        /* 👑 التاج فوق الرمز العالمي (الذهبي) */
         .global-emblem .crown {
             position: absolute;
             top: -45px;
             left: 50%;
             transform: translateX(-50%);
             font-size: 3.5rem; /* مقاس كبير للتاج */
-            color: var(--silver-base);
+            color: var(--gold-base);
             z-index: 20;
             text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
         }
 
-        /* 📅 إضافة تاريخ التأسيس (Circular Date) */
+        /* 📅 إضافة تاريخ التأسيس أسفل حرف الـ H */
         .establishment-date {
             position: absolute;
-            bottom: 20px; /* مكانه أسفل الرمز */
+            bottom: 25px; /* مكانه أسفل الرمز */
             width: 100%;
             text-align: center;
             font-family: 'Cinzel', serif; /* خط كلاسيكي وواضح */
-            color: var(--silver-base);
+            color: var(--gold-base);
             font-size: 0.9rem;
-            letter-spacing: 5px; /* تباعد الحروف */
+            letter-spacing: 4px; /* تباعد الحروف */
             text-transform: uppercase;
             z-index: 15;
             opacity: 0.8;
@@ -102,13 +90,13 @@
         /* 🖋️ 2. التوقيع الفرنسي الفخم (The Signature) */
         .signature-text {
             font-family: 'Great Vibes', cursive; /* خط فرنسي انسيابي كأنه توقيع ريشة - تخانة وفخامة */
-            color: var(--silver-base); /* لون التوقيع فضي */
+            color: var(--gold-base); /* لون التوقيع ذهبي */
             font-size: 5.5rem; /* مقاس كبير جداً وفخم */
             margin: 0;
             letter-spacing: -2px; /* حروف متصلة */
             text-shadow: 
-                -1px -1px 1px var(--silver-shine),
-                1px 1px 1px var(--silver-shadow),
+                -1px -1px 1px var(--gold-shine),
+                1px 1px 1px var(--gold-shadow),
                 3px 3px 12px rgba(0,0,0,0.9); /* ظل عميق لإبراز التوقيع */
             font-weight: 400; /* انسيابية الخط */
         }
@@ -116,7 +104,7 @@
 </head>
 <body>
 
-    <div class="silver-brand-container">
+    <div class="ultimate-brand-container">
         <div class="global-emblem">
             <div class="crown">👑</div>
             <h1 class="emblem-h">H</h1>
