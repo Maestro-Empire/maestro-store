@@ -3,115 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAESTRO EMPIRE | GLOBAL LOGO</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <title>MAESTRO EMPIRE | THE SILVER SEAL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel&display=swap" rel="stylesheet">
     <style>
         :root { 
-            --royal-gold: #b8860b; /* ذهبي ملكي غامق ونحاسي (Dark Goldenrod) - لون العملات والأسهم */
+            --silver-base: #c0c0c0; /* فضي معدني أساسي (Silver) */
+            --silver-shine: #ffffff; /* فضي فاتح لامع للإضاءة (White) */
+            --silver-shadow: #808080; /* فضي داكن للظل (Gray) */
             --void-black: #020202; /* أسود قاتم جداً (أعمق من الفحم) - خلفية فخمة */
-            --glass-bg: rgba(184, 134, 11, 0.05); /* تفرغ خلفي خفيف جداً */
         }
         
         body { background-color: var(--void-black); margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden;}
 
-        /* حاوية الشعار العالمي */
-        .global-brand-container { text-align: center; position: relative; }
+        /* حاوية الشعار الفضي المتكامل */
+        .silver-brand-container { text-align: center; position: relative; }
 
-        /* 👑 1. الرمز الملكي العالمي (The Global Emblem) */
+        /* 👑 1. الرمز الملكي العالمي (The Silver Emblem) */
         .global-emblem {
             position: relative;
-            width: 150px; /* مقاس فخم للشعار */
-            height: 150px;
+            width: 250px; /* مقاس فخم للشعار */
+            height: 250px;
             margin: 0 auto 40px;
-            border: 3px solid var(--royal-gold); /* إطار ذهبي سميك وقوي */
+            border: 4px solid var(--silver-base); /* إطار فضي سميك وقوي (الكرة الأرضية) */
             border-radius: 50%; /* شكل الكرة الأرضية والدائرة المحكمة */
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 0 50px rgba(184, 134, 11, 0.3); /* ظل يعطي عمقاً فخماً */
-            background: var(--glass-bg); /* تفرغ خلفي */
+            box-shadow: 0 0 80px rgba(192, 192, 192, 0.3); /* ظل فضي عميق */
+            background: rgba(192, 192, 192, 0.05); /* تفرغ خلفي خفيف */
             overflow: hidden; /* لاحتواء العناصر */
         }
         
-        /* تأثير خطوط الطول والعرض للكرة الأرضية */
+        /* تأثير خطوط الطول والعرض للكرة الأرضية (الفضية) */
         .global-emblem::before {
             content: "";
             position: absolute;
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            background: repeating-linear-gradient(90deg, transparent, transparent 15px, rgba(184, 134, 11, 0.1) 16px),
-                        repeating-linear-gradient(0deg, transparent, transparent 15px, rgba(184, 134, 11, 0.1) 16px);
+            background: repeating-linear-gradient(90deg, transparent, transparent 15px, rgba(192, 192, 192, 0.1) 16px),
+                        repeating-linear-gradient(0deg, transparent, transparent 15px, rgba(192, 192, 192, 0.1) 16px);
             opacity: 0.5;
         }
-
-        /* تأثير السحابة السينمائية (تأثير ضبابي خفيف) */
-        .global-emblem::after {
-            content: "";
-            position: absolute;
-            width: 120%;
-            height: 120%;
-            background: radial-gradient(circle, rgba(184, 134, 11, 0.05), transparent);
-            filter: blur(10px);
-            opacity: 0.3;
-        }
         
-        /* حرف H (المحفور الملكي) داخل الرمز */
+        /* 🖋️ حرف H (البارز والسميك) - فخامة الفرنسية الفضية */
         .emblem-h {
-            font-family: 'Cinzel Decorative', serif; /* خط مزخرف وقوي */
-            color: var(--royal-gold);
-            font-size: 5rem; /* حجم كبير وبارز */
+            font-family: 'Great Vibes', cursive; /* خط فرنسي انسيابي كأنه توقيع ريشة - تخانة وفخامة */
+            color: var(--silver-base); /* لون الحرف الأساسي فضي */
+            font-size: 10rem; /* مقاس ضخم جداً وبارز */
             margin: 0;
             line-height: 1;
+            font-weight: 400; /* انسيابية الخط */
             position: relative;
-            z-index: 10; /* فوق خطوط الكرة والسحابة */
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.5); /* تأثير الحفر والبروز */
+            z-index: 10;
+            
+            /* تأثير البروز واللمعان الفضي (Emboss & Bevel) */
+            text-shadow: 
+                /* إضاءة علوية (البروز لبره) */
+                -1px -1px 1px var(--silver-shine), 
+                -2px -2px 2px var(--silver-shine),
+                
+                /* ظل سفلي (العمق لبره) */
+                1px 1px 1px var(--silver-shadow),
+                2px 2px 2px var(--silver-shadow),
+                3px 3px 3px var(--silver-shadow),
+                
+                /* ظل عميق خلفي لإبراز الحرف عن الخلفية */
+                5px 5px 15px rgba(0,0,0,0.8);
         }
 
-        /* 👑 التاج فوق الرمز العالمي */
+        /* 👑 التاج فوق الرمز العالمي (الفضي) */
         .global-emblem .crown {
             position: absolute;
-            top: -30px;
+            top: -45px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 2.5rem;
-            color: var(--royal-gold);
+            font-size: 3.5rem; /* مقاس كبير للتاج */
+            color: var(--silver-base);
             z-index: 20;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        /* 📅 إضافة تاريخ التأسيس (Circular Date) */
+        .establishment-date {
+            position: absolute;
+            bottom: 20px; /* مكانه أسفل الرمز */
+            width: 100%;
+            text-align: center;
+            font-family: 'Cinzel', serif; /* خط كلاسيكي وواضح */
+            color: var(--silver-base);
+            font-size: 0.9rem;
+            letter-spacing: 5px; /* تباعد الحروف */
+            text-transform: uppercase;
+            z-index: 15;
+            opacity: 0.8;
         }
 
         /* 🖋️ 2. التوقيع الفرنسي الفخم (The Signature) */
         .signature-text {
             font-family: 'Great Vibes', cursive; /* خط فرنسي انسيابي كأنه توقيع ريشة - تخانة وفخامة */
-            color: var(--royal-gold);
+            color: var(--silver-base); /* لون التوقيع فضي */
             font-size: 5.5rem; /* مقاس كبير جداً وفخم */
             margin: 0;
             letter-spacing: -2px; /* حروف متصلة */
-            text-shadow: 3px 3px 12px rgba(0,0,0,0.9); /* ظل عميق لإبراز التوقيع */
+            text-shadow: 
+                -1px -1px 1px var(--silver-shine),
+                1px 1px 1px var(--silver-shadow),
+                3px 3px 12px rgba(0,0,0,0.9); /* ظل عميق لإبراز التوقيع */
             font-weight: 400; /* انسيابية الخط */
-        }
-
-        /* اسم الإمبراطورية بالخط الرفيع والواضح */
-        .empire-subtext {
-            color: rgba(184, 134, 11, 0.6); /* ذهبي خافت جداً */
-            font-family: 'Cinzel Decorative', serif;
-            font-size: 1rem;
-            letter-spacing: 12px;
-            text-transform: uppercase;
-            margin-top: 15px;
-            font-weight: 400;
         }
     </style>
 </head>
 <body>
 
-    <div class="global-brand-container">
+    <div class="silver-brand-container">
         <div class="global-emblem">
             <div class="crown">👑</div>
-            <h2 class="emblem-h">H</h2>
+            <h1 class="emblem-h">H</h1>
+            <div class="establishment-date">EST. 2026</div>
         </div>
         
         <h1 class="signature-text">Maestro</h1>
-        <p class="empire-subtext">Global Empire | Collection</p>
     </div>
 
 </body>
