@@ -31,42 +31,33 @@
             max-width: 900px;
             margin: 0 auto;
         }
-
-        /* الكروت والصور الدائرية الفخمة */
-        .card { 
-            background-color: var(--card-bg); 
-            border: 1px solid #30363d; 
-            border-radius: 20px; 
-            padding: 25px; 
-            transition: 0.4s ease-in-out; 
-        }
-        .card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
-        
-        .card img { 
-            width: 170px; 
-            height: 170px; 
-            border-radius: 50%; 
-            object-fit: cover; 
-            border: 3px solid var(--gold); 
-            margin-bottom: 20px;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.5);
+        .grid {
+            display: grid;
+            /* 1. تحديد عمودين فقط */
+            grid-template-columns: repeat(2, 1fr); 
+            
+            /* 2. المسافة بين الكارتين */
+            gap: 30px; 
+            
+            /* 3. العرض الإجمالي للمنطقة اللي فيها الصور (عشان ميبقوش فارشين قوي) */
+            max-width: 800px; 
+            
+            /* 4. توسيط الصور في نص الصفحة */
+            margin: 0 auto; 
+            padding: 20px;
         }
 
-        .card-title { color: var(--gold); font-size: 1.2rem; font-weight: bold; margin-bottom: 15px; }
-        
-        .like-btn { 
-            background: none; border: 1px solid var(--gold); color: var(--gold); 
-            padding: 8px 25px; border-radius: 20px; cursor: pointer; transition: 0.3s;
+        /* 5. مقاس الكارت نفسه عشان يكون متناسق */
+        .card {
+            padding: 30px;
+            border-radius: 25px;
         }
-        .like-btn:hover { background: var(--gold); color: black; }
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        /* للموبايل */
-        @media (max-width: 700px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-    </style>
-</head>
-<body>
+        /* 6. مقاس الصورة الدائرية (تكبر شوية عشان هما 2 بس) */
+        .card img {
+            width: 200px; 
+            height: 200px;
+        }
 
     <div class="header">
         <h1>MAESTRO</h1>
