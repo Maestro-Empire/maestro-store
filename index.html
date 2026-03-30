@@ -1,173 +1,27 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>The Maestro Empire | 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background-color: #000;
-            margin: 0;
-            min-height: 100vh;
-            color: #C19A6B; /* اللون البيج النحاسي */
-            font-family: 'Montserrat', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-        }
+/* تنسيق موحد لبطاقات المنتجات */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* توزيع آلي للصور */
+    gap: 20px;
+    padding: 20px;
+    width: 90%;
+}
 
-        /* 1. العلامة المائية: H العملاقة في الخلفية (باهتة جداً) */
-        body::before {
-            content: "H";
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 90vh;
-            color: rgba(193, 154, 107, 0.02); /* شفافة جداً (أثر خفيف) */
-            z-index: 0;
-            user-select: none;
-            font-weight: bold;
-        }
+.product-card {
+    background: #0a0a0a;
+    border: 1px solid rgba(184, 134, 11, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease; /* تأثير الحركة */
+}
 
-        /* حاوية التصميم الأساسية */
-        main {
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            max-width: 1200px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 20px;
-        }
+.product-card:hover {
+    transform: scale(1.05); /* تكبير بسيط عند اللمس */
+    border-color: #b8860b;
+}
 
-        /* 2. كتلة اللوجو الملمومة في المربع الأسمر */
-        .logo-cluster {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            border: 1px solid rgba(193, 154, 107, 0.2);
-            padding: 20px 40px;
-            background-color: #000;
-            margin-bottom: 30px;
-        }
-
-        .company-name {
-            font-family: 'Great Vibes', cursive;
-            font-size: 36px;
-            color: #b8860b;
-            margin: 0;
-            line-height: 1;
-        }
-
-        /* الدايرة الصغيرة اللي فيها H (نزلت تحت) */
-        .small-h-circle {
-            width: 40px;
-            height: 40px;
-            border: 1px solid #b8860b;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-        .small-h-circle text {
-            fill: #b8860b;
-            font-size: 24px;
-            font-family: serif;
-        }
-
-        .premium-tag {
-            font-size: 10px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: rgba(193, 154, 107, 0.8);
-            margin: 0;
-        }
-
-        /* 3. شبكة الصور الـ 10 (النظارات، الساعات، البرفانات) */
-        .product-grid {
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .product-card {
-            background-color: #0a0a0a;
-            border: 1px solid rgba(193, 154, 107, 0.1);
-            height: 250px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px;
-            transition: 0.3s;
-            text-align: center;
-        }
-        .product-card:hover {
-            border-color: #b8860b;
-            background-color: #111;
-        }
-
-        .product-placeholder {
-            width: 100%;
-            height: 70%;
-            background-color: #1a1a1a;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #444;
-            font-size: 40px;
-        }
-
-        .product-title {
-            font-size: 14px;
-            margin: 10px 0 0;
-            letter-spacing: 1px;
-        }
-
-    </style>
-</head>
-<body>
-
-    <main>
-        <div class="logo-cluster">
-            <h1 class="company-name">The Maestro</h1> <div class="small-h-circle"> <svg viewBox="0 0 100 100">
-                    <text x="50" y="70" text-anchor="middle">H</text>
-                </svg>
-            </div>
-            
-            <p class="premium-tag">Premium Brand • Est. 2026</p>
-        </div>
-
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="product-placeholder">👓</div>
-                <div class="product-title">نظارات شمسية</div>
-            </div>
-            <div class="product-card">
-                <div class="product-placeholder">⌚</div>
-                <div class="product-title">ساعات فاخرة</div>
-            </div>
-            <div class="product-card">
-                <div class="product-placeholder">✨</div>
-                <div class="product-title">عطور ملكية</div>
-            </div>
-            <div class="product-card"><div class="product-placeholder">📦</div><div class="product-title">قسم 4</div></div>
-            <div class="product-card"><div class="product-placeholder">📦</div><div class="product-title">قسم 5</div></div>
-            <div class="product-card"><div class="product-placeholder">📦</div><div class="product-title">قسم 6</div></div>
-            <div class="product-card"><div class="product-placeholder">📦</div><div class="product-title">قسم 7</div></div>
-            <div class="product-card"><div class="product-placeholder">📦</div><div class="product-title">قسم 8</div></div>
-            <div class="product-card"><div class="product-placeholder">📦</div><div class="product-title">قسم 9</div></div>
-            <div class="product-card"><div class="product-placeholder">📦</div><div class="product-title">قسم 10</div></div>
-        </div>
-    </main>
-
-</body>
-</html>
+.product-image {
+    width: 100%;
+    height: 300px; /* توحيد الارتفاع لكل الصور */
+    object-fit: cover; /* لضمان عدم تمدد الصورة بشكل خاطئ */
+}
