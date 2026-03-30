@@ -10,20 +10,20 @@
         
         /* الهيدر */
         .header { padding: 50px 20px; background: #1c2128; border-bottom: 3px solid var(--gold); }
-        h1 { color: var(--gold); font-size: 3rem; margin: 0; letter-spacing: 8px; text-transform: uppercase; }
-        .motto { color: #8b949e; font-size: 1.2rem; margin-top: 10px; }
+        h1 { color: var(--gold); font-size: 3rem; margin: 0; letter-spacing: 8px; }
+        .motto { color: #8b949e; font-size: 1.2rem; margin-top: 10px; } 
 
-        /* سحر التنسيق العرضي (الشبكة) */
+        /* تنسيق الشبكة العرضية 5 في الصف */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(5, 1fr); /* هنا السر: 5 أعمدة جنب بعض */
+            grid-template-columns: repeat(5, 1fr); 
             gap: 20px;
             max-width: 1400px;
             margin: 40px auto;
             padding: 0 20px;
-        }
+        } 
 
-        /* الكارت الفخم */
+        /* الكارت */
         .card { 
             background-color: var(--card-bg); 
             border: 1px solid #30363d; 
@@ -31,42 +31,37 @@
             padding: 20px; 
             transition: 0.4s; 
         }
-        .card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 10px 20px rgba(0,0,0,0.5); } 
 
-        /* الصورة الدائرية */
+        /* الصور الدائرية */
         .card img { 
-            width: 150px; 
-            height: 150px; 
+            width: 140px; 
+            height: 140px; 
             border-radius: 50%; 
             object-fit: cover; 
             border: 3px solid var(--gold); 
             margin-bottom: 15px; 
-        }
+        } 
 
         .card-title { color: var(--gold); font-size: 1.1rem; font-weight: bold; margin-bottom: 15px; }
         
         .like-btn { 
-            background: none; 
-            border: 1px solid var(--gold); 
-            color: var(--gold); 
-            padding: 8px 20px; 
-            border-radius: 20px; 
-            cursor: pointer; 
-            transition: 0.3s;
+            background: none; border: 1px solid var(--gold); color: var(--gold); 
+            padding: 8px 20px; border-radius: 20px; cursor: pointer; transition: 0.3s;
         }
-        .like-btn:hover { background: var(--gold); color: black; }
+        .like-btn:hover { background: var(--gold); color: black; } 
 
-        /* عشان يشتغل على الموبايل ويفضل شكله حلو */
+        /* للموبايل */
         @media (max-width: 1100px) { .grid-container { grid-template-columns: repeat(3, 1fr); } }
         @media (max-width: 700px) { .grid-container { grid-template-columns: repeat(2, 1fr); } }
     </style>
-</head>
+</head> 
 <body>
 
     <div class="header">
-        <h1>MAESTRO</h1>
-        <p class="motto">المايسترو • فخامة النظارات الملكية</p>
-    </div>
+        <h1>إمبراطورية المايسترو</h1>
+        <p class="motto">مجموعة النظارات الحصرية 2026</p>
+    </div> 
 
     <div class="grid-container">
         <div class="card"><img src="https://images.pexels.com/photos/701877/pexels-photo-701877.jpeg?w=400"><div class="card-title">نظارة موديل 1</div><button class="like-btn">❤️ أعجبني</button></div>
@@ -74,7 +69,6 @@
         <div class="card"><img src="https://images.pexels.com/photos/1499477/pexels-photo-1499477.jpeg?w=400"><div class="card-title">نظارة موديل 3</div><button class="like-btn">❤️ أعجبني</button></div>
         <div class="card"><img src="https://images.pexels.com/photos/1362550/pexels-photo-1362550.jpeg?w=400"><div class="card-title">نظارة موديل 4</div><button class="like-btn">❤️ أعجبني</button></div>
         <div class="card"><img src="https://images.pexels.com/photos/1549004/pexels-photo-1549004.jpeg?w=400"><div class="card-title">نظارة موديل 5</div><button class="like-btn">❤️ أعجبني</button></div>
-        
         <div class="card"><img src="https://images.pexels.com/photos/39716/sunglasses-glasses-dark-glasses-shades-39716.jpeg?w=400"><div class="card-title">نظارة موديل 6</div><button class="like-btn">❤️ أعجبني</button></div>
         <div class="card"><img src="https://images.pexels.com/photos/185764/pexels-photo-185764.jpeg?w=400"><div class="card-title">نظارة موديل 7</div><button class="like-btn">❤️ أعجبني</button></div>
         <div class="card"><img src="https://images.pexels.com/photos/2811088/pexels-photo-2811088.jpeg?w=400"><div class="card-title">نظارة موديل 8</div><button class="like-btn">❤️ أعجبني</button></div>
@@ -82,7 +76,7 @@
         <div class="card"><img src="https://images.pexels.com/photos/165448/pexels-photo-165448.jpeg?w=400"><div class="card-title">نظارة موديل 10</div><button class="like-btn">❤️ أعجبني</button></div>
     </div>
 
-    <footer style="padding: 40px; color: #333;">MAESTRO EMPIRE &copy; 2026</footer>
+    <footer style="padding: 30px; color: #444;">MAESTRO EMPIRE &copy; 2026</footer>
 
 </body>
 </html>
