@@ -1,57 +1,12 @@
 <!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <style>
-        body {
-            background-color: #000; /* خلفية سوداء */
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Times New Roman', serif;
-            position: relative;
-        }
+<html>
+<body style="background-color:black; color:gold; text-align:center; padding-top:200px; font-family:serif;">
 
-        /* العلامة المائية: حرف H ضخم جداً وباهت في الخلفية */
-        .watermark {
-            position: absolute;
-            font-size: 80vh; 
-            color: #111; /* رمادي غامق جداً قريب من الأسود */
-            z-index: 0;
-            user-select: none;
-        }
+    <h1 style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:300px; opacity:0.1; margin:0;">H</h1>
 
-        /* تصميم الاسم والبيانات */
-        .content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            color: #b8860b; /* لون ذهبي */
-        }
-
-        .main-name {
-            font-size: 60px;
-            margin: 0;
-            border-bottom: 2px solid #b8860b; /* السطر الرفيع */
-            padding-bottom: 10px;
-        }
-
-        .sub-text {
-            font-size: 16px;
-            margin-top: 10px;
-            letter-spacing: 5px;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="watermark">H</div>
-
-    <div class="content">
-        <div class="main-name">The Maestro</div>
-        <div class="sub-text">PREMIUM COLLECTION 2026</div>
+    <div style="position:relative; z-index:1;">
+        <h2 style="font-size:50px; margin:0; border-bottom: 2px solid gold; display:inline-block; padding-bottom:10px;">The Maestro</h2>
+        <p style="letter-spacing:5px; font-size:20px;">PREMIUM COLLECTION 2026</p>
     </div>
 
 </body>
