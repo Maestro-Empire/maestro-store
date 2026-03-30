@@ -24,4 +24,93 @@
 
         .card { background-color: var(--card-bg); border: 1px solid #30363d; border-radius: 20px; padding: 20px; transition: 0.3s; }
         .card:hover { transform: translateY(-5px); border-color: var(--gold); }
-        .card img { width: 130px; height: 130px; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold); margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0
+        .card img { width: 130px; height: 130px; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold); margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .card-title { font-size: 0.9em; color: var(--gold); margin-bottom: 10px; font-weight: bold; }
+        
+        .like-btn { background: none; border: 1px solid var(--gold); color: var(--gold); padding: 5px 15px; border-radius: 20px; cursor: pointer; font-size: 0.8rem; }
+        .like-btn:hover { background: var(--gold); color: black; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 650px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>MAESTRO</h1>
+        <p class="motto">مجموعة النخبة الحصرية 2026</p>
+    </div>
+
+    <div class="tab-bar">
+        <button class="tab-link active" onclick="openTab('glasses')">النظارات (10)</button>
+        <button class="tab-link" onclick="openTab('perfumes')">العطور (10)</button>
+        <button class="tab-link" onclick="openTab('watches')">الساعات (10)</button>
+    </div>
+
+    <div id="glasses" class="content-section active">
+        <div class="grid" id="glasses-grid">
+            <script>
+                const glassImages = [
+                    'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400', 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400',
+                    'https://images.unsplash.com/photo-1577803645773-f96470509666?w=400', 'https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=400',
+                    'https://images.unsplash.com/photo-1508296695146-257a814070b4?w=400', 'https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=400',
+                    'https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=400', 'https://images.unsplash.com/photo-1509100104048-6373f65cd551?w=400',
+                    'https://images.unsplash.com/photo-1534844973-70575d5223a7?w=400', 'https://images.unsplash.com/photo-1502324842267-056af4aa7f2e?w=400'
+                ];
+                glassImages.forEach((img, i) => {
+                    document.write(`<div class="card"><img src="${img}"><div class="card-title">نظارة موديل G-${i+1}</div><button class="like-btn">❤️ أعجبني</button></div>`);
+                });
+            </script>
+        </div>
+    </div>
+
+    <div id="perfumes" class="content-section">
+        <div class="grid" id="perfumes-grid">
+            <script>
+                const perfumeImages = [
+                    'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', 'https://images.unsplash.com/photo-1594035910387-fea47794261f?w=400',
+                    'https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=400', 'https://images.unsplash.com/photo-1557177324-56c542165309?w=400',
+                    'https://images.unsplash.com/photo-1588405864443-f458d9298444?w=400', 'https://images.unsplash.com/photo-1592914610354-fd354ea45e48?w=400',
+                    'https://images.unsplash.com/photo-1616948055600-419b09223f9d?w=400', 'https://images.unsplash.com/photo-1587017739510-093a2076067b?w=400',
+                    'https://images.unsplash.com/photo-1615033488018-9907c0800047?w=400', 'https://images.unsplash.com/photo-1558941011-827c85859942?w=400'
+                ];
+                perfumeImages.forEach((img, i) => {
+                    document.write(`<div class="card"><img src="${img}"><div class="card-title">عطر ملكي P-${i+1}</div><button class="like-btn">❤️ أعجبني</button></div>`);
+                });
+            </script>
+        </div>
+    </div>
+
+    <div id="watches" class="content-section">
+        <div class="grid" id="watches-grid">
+            <script>
+                const watchImages = [
+                    'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400', 'https://images.unsplash.com/photo-1522312346375-d1ad5051639f?w=400',
+                    'https://images.unsplash.com/photo-1508057198894-247b23fe5ade?w=400', 'https://images.unsplash.com/photo-1533139502658-0198f920d8e8?w=400',
+                    'https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?w=400', 'https://images.unsplash.com/photo-1612817288484-6f916006741a?w=400',
+                    'https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=400', 'https://images.unsplash.com/photo-1547996160-81dfa63595dd?w=400',
+                    'https://images.unsplash.com/photo-1517466127023-c7e63678c05b?w=400', 'https://images.unsplash.com/photo-1619134716292-3a33214f57c4?w=400'
+                ];
+                watchImages.forEach((img, i) => {
+                    document.write(`<div class="card"><img src="${img}"><div class="card-title">ساعة فاخرة W-${i+1}</div><button class="like-btn">❤️ أعجبني</button></div>`);
+                });
+            </script>
+        </div>
+    </div>
+
+    <script>
+        function openTab(name) {
+            var i, sections, tabs;
+            sections = document.getElementsByClassName("content-section");
+            for (i = 0; i < sections.length; i++) { sections[i].classList.remove("active"); }
+            tabs = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tabs.length; i++) { tabs[i].classList.remove("active"); }
+            document.getElementById(name).classList.add("active");
+            event.currentTarget.classList.add("active");
+        }
+    </script>
+
+    <footer>MAESTRO EMPIRE &copy; 2026</footer>
+</body>
+</html>
