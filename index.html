@@ -3,89 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAESTRO EMPIRE | إمبراطورية المايسترو</title>
+    <title>MAESTRO | إعلانات النخبة</title>
     <style>
-        :root { --gold: #c5a059; --dark: #050505; --soft-black: rgba(20, 20, 20, 0.8); }
-        body { background-color: var(--dark); color: white; font-family: 'Times New Roman', serif; margin: 0; padding: 0; overflow-x: hidden; }
+        :root { --gold: #c5a059; --dark: #080808; --gray: #121212; }
+        body { background-color: var(--dark); color: white; font-family: 'Times New Roman', serif; margin: 0; padding: 0; }
         
-        /* الهيدر بتأثير فخم */
-        .hero { height: 50vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: radial-gradient(circle, #1a1a1a 0%, #050505 100%); border-bottom: 1px solid var(--gold); position: relative; }
-        .hero h1 { font-size: 4rem; color: var(--gold); letter-spacing: 10px; margin: 0; text-shadow: 2px 2px 10px rgba(197, 160, 89, 0.3); }
-        .hero p { font-size: 1.1rem; color: #888; letter-spacing: 4px; margin-top: 15px; }
+        /* الواجهة الرئيسية */
+        .hero { height: 60vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1493333858339-dec5581162ca?w=1200'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border-bottom: 2px solid var(--gold); }
+        .hero h1 { font-size: 5rem; color: var(--gold); letter-spacing: 12px; margin: 0; }
+        .hero p { font-size: 1.2rem; letter-spacing: 5px; color: #fff; margin-top: 10px; opacity: 0.8; }
 
-        .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
-        .section-title { color: var(--gold); font-size: 2rem; margin-bottom: 50px; text-align: center; letter-spacing: 2px; }
-
-        /* الشبكة المتطورة */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .card { background: var(--soft-black); border: 1px solid #222; border-radius: 0px; overflow: hidden; position: relative; transition: 0.5s ease; cursor: pointer; }
-        .card:hover { border-color: var(--gold); transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
+        /* حاوية الإعلانات */
+        .ad-container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
         
-        .card img { width: 100%; height: 400px; object-fit: cover; transition: 1s ease; filter: sepia(20%) contrast(110%); }
-        .card:hover img { transform: scale(1.15); filter: sepia(0%) contrast(100%); }
+        /* ستايل الإعلان (من اختياري) */
+        .ad-row { display: flex; flex-wrap: wrap; align-items: center; margin-bottom: 100px; gap: 40px; }
+        .ad-row:nth-child(even) { flex-direction: row-reverse; } /* تبديل الصور يمين وشمال للشياكة */
         
-        .info { position: absolute; bottom: 0; width: 100%; padding: 30px; background: linear-gradient(transparent, black 80%); text-align: right; }
-        .info h3 { color: var(--gold); margin: 0; font-size: 1.5rem; }
-        .info p { color: #ccc; font-size: 0.9rem; margin: 10px 0; }
+        .ad-image { flex: 1; min-width: 300px; position: relative; overflow: hidden; border: 1px solid #1a1a1a; }
+        .ad-image img { width: 100%; height: 500px; object-fit: cover; transition: 1.5s; filter: contrast(1.1) brightness(0.9); }
+        .ad-image:hover img { transform: scale(1.05); filter: contrast(1.2) brightness(1); }
 
-        /* زرار الأكشن */
-        .btn { border: 1px solid var(--gold); color: var(--gold); padding: 5px 20px; background: none; font-size: 0.8rem; transition: 0.3s; }
-        .card:hover .btn { background: var(--gold); color: black; }
+        .ad-text { flex: 1; min-width: 300px; text-align: right; padding: 20px; }
+        .ad-text h2 { color: var(--gold); font-size: 2.5rem; margin-bottom: 20px; border-right: 4px solid var(--gold); padding-right: 15px; }
+        .ad-text p { color: #aaa; font-size: 1.2rem; line-height: 1.8; margin-bottom: 30px; }
+        
+        .ad-badge { display: inline-block; padding: 8px 25px; border: 1px solid var(--gold); color: var(--gold); font-size: 0.9rem; letter-spacing: 2px; }
 
-        footer { padding: 80px 20px; text-align: center; color: #333; font-size: 0.7rem; letter-spacing: 3px; border-top: 1px solid #111; }
+        footer { padding: 60px; text-align: center; border-top: 1px solid #111; color: #444; font-size: 0.8rem; letter-spacing: 3px; }
     </style>
 </head>
 <body>
 
     <div class="hero">
         <h1>MAESTRO</h1>
-        <p>THE ART OF LUXURY LIVING</p>
+        <p>EXCLUSIVE ADVERTISING</p>
     </div>
 
-    <div class="container">
-        <div class="section-title">EXCLUSIVE COLLECTION</div>
+    <div class="ad-container">
         
-        <div class="grid">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600">
-                <div class="info">
-                    <h3>Elite Motors</h3>
-                    <p>عالم القوة والفخامة</p>
-                    <button class="btn">VIEW DETAILS</button>
-                </div>
+        <div class="ad-row">
+            <div class="ad-image">
+                <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600">
             </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600">
-                <div class="info">
-                    <h3>Master Timepieces</h3>
-                    <p>دقة الساعات السويسرية</p>
-                    <button class="btn">VIEW DETAILS</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600">
-                <div class="info">
-                    <h3>Modern Eyewear</h3>
-                    <p>أحدث صيحات النظارات</p>
-                    <button class="btn">VIEW DETAILS</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1510132334053-157930969623?w=600">
-                <div class="info">
-                    <h3>Premium Cigars</h3>
-                    <p>مختارات ملكية فاخرة</p>
-                    <button class="btn">VIEW DETAILS</button>
-                </div>
+            <div class="ad-text">
+                <div class="ad-badge">LAST STYLES 2026</div>
+                <h2>فخامة النظرة</h2>
+                <p>نظارات تعكس شخصيتك، صُممت لتناسب أصحاب الذوق الرفيع. دقة في التفاصيل وحماية تامة بأرقى الموديلات العالمية.</p>
             </div>
         </div>
+
+        <div class="ad-row">
+            <div class="ad-image">
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600">
+            </div>
+            <div class="ad-text">
+                <div class="ad-badge">ELITE MOTORS</div>
+                <h2>محركات النخبة</h2>
+                <p>حيث تلتقي القوة بالأناقة. نستعرض لك أرقى السيارات التي تجسد مفهوم الرفاهية والأداء الجبار على الطريق.</p>
+            </div>
+        </div>
+
+        <div class="ad-row">
+            <div class="ad-image">
+                <img src="https://images.unsplash.com/photo-1510132334053-157930969623?w=600">
+            </div>
+            <div class="ad-text">
+                <div class="ad-badge">ROYAL SELECTION</div>
+                <h2>مختارات ملكية</h2>
+                <p>عبق السيجار الفاخر مع عطور تسحر الحواس. إعلان عن مجموعة مختارة بعناية لتناسب أوقاتك الخاصة والهامة.</p>
+            </div>
+        </div>
+
     </div>
 
     <footer>
-        MAESTRO EMPIRE &copy; 2026 | ALL RIGHTS RESERVED
+        MAESTRO EMPIRE | ADVERTISING PORTFOLIO &copy; 2026
     </footer>
 
 </body>
