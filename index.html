@@ -3,50 +3,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إمبراطورية المايسترو</title>
+    <title>إمبراطورية المايسترو - Maestro Empire</title>
     <style>
-        body { background-color: #0b0e14; color: white; font-family: Arial, sans-serif; text-align: center; margin: 0; padding: 0; }
-        .header { padding: 40px 20px; background: #161b22; border-bottom: 2px solid #d4af37; }
-        h1 { color: #d4af37; font-size: 2.5em; margin: 0; }
-        .grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 30px; }
-        .card { background: #161b22; border: 1px solid #30363d; border-radius: 20px; padding: 20px; width: 280px; }
-        .card img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid #d4af37; }
-        .card-title { color: #d4af37; font-size: 1.3em; margin: 15px 0; }
-        .like-btn { background: none; border: 1px solid #d4af37; color: #d4af37; padding: 5px 15px; border-radius: 20px; cursor: pointer; }
+        :root { --gold: #d4af37; --dark: #0b0e14; --card-bg: #161b22; --text-muted: #8b949e; }
+        body { background-color: var(--dark); color: white; font-family: 'Segoe UI', Tahoma, sans-serif; text-align: center; margin: 0; padding-bottom: 50px; }
+        
+        /* الهيدر الأنيق */
+        .header { padding: 40px 20px; background: linear-gradient(145deg, #1c2128, var(--dark)); border-bottom: 2px solid var(--gold); box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        h1 { color: var(--gold); font-size: 2.5em; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .motto { color: var(--text-muted); margin-top: 10px; font-size: 1.1em; }
+
+        /* شريط التنقل (التبويبات) */
+        .tab-bar { display: flex; justify-content: center; background-color: #1c2128; border-bottom: 1px solid #30363d; sticky; top: 0; z-index: 1000; padding: 10px; }
+        .tab-link { background: none; border: none; color: white; padding: 12px 24px; cursor: pointer; font-size: 1.1em; font-weight: bold; transition: 0.3s; border-radius: 20px; }
+        .tab-link:hover { background-color: rgba(212, 175, 55, 0.1); }
+        .tab-link.active { color: var(--gold); background-color: rgba(212, 175, 55, 0.15); border: 1px solid var(--gold); }
+
+        /* حاوية الألبوم */
+        .content-section { display: none; animation: fadeIn 0.5s; padding: 30px; }
+        .content-section.active { display: block; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1400px; margin: 0 auto; }
+
+        /* الكروت والصور الدائرية الفخمة */
+        .card { background-color: var(--card-bg); border: 1px solid #30363d; border-radius: 20px; padding: 25px; transition: 0.3s ease-in-out; }
+        .card:hover { transform: translateY(-5px); border-color: var(--gold); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
+        .card img { width: 170px; height: 170px; border-radius: 50%; object-fit: cover; border: 4px solid var(--gold); margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .card-title { font-size: 1.4em; color: var(--gold); margin-bottom: 10px; font-weight: bold; }
+        
+        /* أزرار الإعجاب */
+        .actions { margin-top: 15px; }
+        .like-btn { background: none; border: 1px solid var(--gold); color: var(--gold); padding: 8px 20px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 0.9em; }
+        .like-btn:hover { background-color: var(--gold); color: black; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
 
     <div class="header">
         <h1>إمبراطورية المايسترو</h1>
-        <p>عطور • سيارات • سيجار • نظارات</p>
+        <p class="motto">فخامة بلا حدود • جودة بلا تنازل</p>
     </div>
 
-    <div class="grid">
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400">
-            <div class="card-title">نظارات حديثة</div>
-            <button class="like-btn">❤️ أعجبني</button>
-        </div>
+    <div class="tab-bar">
+        <button class="tab-link active" onclick="openSection('glasses')">النظارات (10)</button>
+        <button class="tab-link" onclick="openSection('cars')">السيارات (10)</button>
+        <button class="tab-link" onclick="openSection('cigars')">السيجار (10)</button>
+    </div>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400">
-            <div class="card-title">سيارات فارهة</div>
-            <button class="like-btn">❤️ أعجبني</button>
-        </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1510132334053-157930969623?w=400">
-            <div class="card-title">سيجار ملكي</div>
-            <button class="like-btn">❤️ أعجبني</button>
-        </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=400">
-            <div class="card-title">عطور فاخرة</div>
-            <button class="like-btn">❤️ أعجبني</button>
+    <div id="glasses" class="content-section active">
+        <div class="grid">
+            <div class="card"><img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400"><div class="card-title">نظارة كلاسيك</div><button class="like-btn">❤️ أعجبني</button></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1577803645773-f96470509666?w=400"><div class="card-title">موديل عصري</div><button class="like-btn">❤️ أعجبني</button></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400"><div class="card-title">إطار ذهبي فخم</div><button class="like-btn">❤️ أعجبني</button></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?w=400"><div class="card-title">نظارة طيارين</div><button class="like-btn">❤️ أعجبني</button></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1582142837330-9755f949c5e3?w=400"><div class="card-title">ستايل إيطالي</div><button class="like-btn">❤️ أعجبني</button></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1601053075276-857e494a86ac?w=400"><div class="card-title">حماية قصوى</div><button class="like-btn">❤️ أعجبني</button></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1615807662828-912c0a96f30a?w=400"><div class="card-title">تصميم رياضي</div><button class="like-btn">❤️ أعجبني</button></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?w=400"><div class="card-title">كلاسيك أسود</div><button class="like-btn">❤️ أعجبني</button></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400"><div class="card-title">إطار شفاف</div><button class="like-btn">❤️ أعجبني</button></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1577803645773-f96470509666?w=400"><div class="card-title">آخر موضة</div><button class="like-btn">❤️ أعجبني</button></div>
         </div>
     </div>
+
+    <div id="cars" class="content-section">
+        <div class="grid">
+            <div class="card"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400"><div class="card-title">بورش GT</div><button class="like-btn">❤️ أعجبني</button></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400"><div class="card-title">شيفورلي كمارو</div><button class="like-btn">❤️ أعجبني</button></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400"><div class="card-title">فيراري حمراء</div><button class="like-btn">❤️ أعجبني</button></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=400"><div class="card-title">سيارة كلاسيك فخمة</div><button class="like-btn">❤️ أعجبني</button></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=400"><div class="card-title">فورد موستانج</div><button class="like-btn">❤️ أعجبني</button></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400"><div class="card-title">وحش الطرقات</div><button class="like-btn">❤️ أعجبني</button></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=400"><div class="card-title">لامبورغيني</div><button class="like-btn">❤️ أعجبني</button></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=400"><div class="card-title">مرسيدس</div><button class="like-btn">❤️ أعجبني</button></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=400"><div class="card-title">سيارة عضلات</div><button class="like-btn">❤️ أعجبني</button></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400"><div class="card-title">سرعة وفخامة</div><button class="like-btn">❤️ أعجبني</button></div>
+        </div>
+    </div>
+
+    <div id="cigars" class="content-section">
+        <div class="grid">
+            <div class="card"><img src="https://images.unsplash.com/photo-1510132334053-157930969623?w=400"><div class="card-title">سيجار أصلي فخم</div><button class="like-btn">❤️ أعجبني</button></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1627916640428-f60447bd81d7?w=400"><div class="card-title">هافانا كوبي</div><button class="like-btn">❤️ أعجبني</button></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1510132334053-157930969623?w=400"><div class="card-title">سيجار فاخر جداً</div><button class="like-btn">❤️ أعجبني</button></div>
+            </div>
+    </div>
+    <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إمبراطورية المايسترو - Maestro Empire</title>
+    <style>
+        :root { --gold: #d4af37; --dark: #0b0e14; --card-bg: #161b22; }
+        body { background-color: var(--dark); color: white; font-family: 'Segoe UI', Tahoma, sans-serif; text-align: center; margin: 0; padding-bottom: 50px; }
+        
+        .header { padding: 40px 20px; background: linear-gradient(145deg, #1c2128, var(--dark)); border-bottom: 2px solid var(--gold); }
+        h1 { color: var(--gold); font-size: 2.5em; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .motto { color: #8b949e; margin-top: 10px; font-size: 1.1em; }
+
+        /* شريط الأقسام */
+        .tab-bar { display: flex; justify-content: center; background-color: #1c2128; padding: 10px; sticky; top: 0; z-index: 1000; border-bottom: 1px solid #30363d; overflow-x: auto; }
+        .tab-link { background: none; border: none; color: white; padding: 10px 20px; cursor: pointer; font-size: 1.1em; font-weight: bold; transition: 0.3s; white-space: nowrap; }
+        .tab-link.active { color: var(--gold); border-bottom: 2px solid var(--gold); }
+
+        /* المحتوى */
+        .content-section { display: none; animation: fadeIn 0.5s; padding: 30px; }
+        .content-section.active { display: block; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
+
+        /* الكروت والصور الدائرية */
+        .card { background-color: var(--card-bg); border: 1px solid #30363d; border-radius: 20px; padding: 20px; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); border-color: var(--gold); }
+        .card img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold); margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .card-title { font-size: 1.2em; color: var(--gold); margin-bottom: 10px; }
+        
+        .like-btn { background: none; border: 1px solid var(--gold); color: var(--gold); padding: 5px 15px; border-radius: 20px; cursor: pointer; }
+        .like-btn:hover { background: var(--gold); color: black; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>إمبراطورية المايسترو</h1>
+        <p class="motto">عطور فاخرة • سيارات فارهة • سيجار ملكي • نظارات حديثة</p>
+    </div>
+
+    <div class="tab-bar">
+        <button class="tab-link active" onclick="openTab('glasses')">النظارات (10)</button>
+        <button class="tab-link" onclick="openTab('cars')">السيارات (10)</button>
+        <button class="tab-link" onclick="openTab('cigars')">السيجار (10)</button>
+    </div>
+
+    <div id="glasses" class="content-section active">
+        <div class="grid">
+            <script>
+                const glassImgs = [
+                    'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400',
+                    'https://images.unsplash.com/photo-1577803645773-f96470509666?w=400',
+                    'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400',
+                    'https://images.unsplash.com/photo-1508296695146-257a814070b4?w=400',
+                    'https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=400',
+                    'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400',
+                    'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400',
+                    'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400',
+                    'https://images.unsplash.com/photo-1577803645773-f96470509666?w=400',
+                    'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400'
+                ];
+                glassImgs.forEach((src, i) => {
+                    document.write(`<div class="card"><img src="${src}"><div class="card-title">نظارة موديل ${i+1}</div><button class="like-btn">❤️ أعجبني</button></div>`);
+                });
+            </script>
+        </div>
+    </div>
+
+    <div id="cars" class="content-section">
+        <div class="grid">
+            <script>
+                const carImgs = [
+                    'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400',
+                    'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400',
+                    'https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400',
+                    'https://images.unsplash.com/photo-1502877338535-766e1452684a?w=400',
+                    'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=400',
+                    'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400',
+                    'https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=400',
+                    'https://images.unsplash.com/photo-1502877338535-766e1452684a?w=400',
+                    'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=400',
+                    'https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400'
+                ];
+                carImgs.forEach((src, i) => {
+                    document.write(`<div class="card"><img src="${src}"><div class="card-title">سيارة فارهة ${i+1}</div><button class="like-btn">❤️ أعجبني</button></div>`);
+                });
+            </script>
+        </div>
+    </div>
+
+    <div id="cigars" class="content-section">
+        <div class="grid">
+            <script>
+                const cigarImgs = [
+                    'https://images.unsplash.com/photo-1527181152855-fc03fc7949c8?w=400',
+                    'https://images.unsplash.com/photo-1510132334053-157930969623?w=400',
+                    'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400',
+                    'https://images.unsplash.com/photo-1527181152855-fc03fc7949c8?w=400',
+                    'https://images.unsplash.com/photo-1510132334053-157930969623?w=400',
+                    'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400',
+                    'https://images.unsplash.com/photo-1527181152855-fc03fc7949c8?w=400',
+                    'https://images.unsplash.com/photo-1510132334053-157930969623?w=400',
+                    'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400',
+                    'https://images.unsplash.com/photo-1527181152855-fc03fc7949c8?w=400'
+                ];
+                cigarImgs.forEach((src, i) => {
+                    document.write(`<div class="card"><img src="${src}"><div class="card-title">سيجار ملكي ${i+1}</div><button class="like-btn">❤️ أعجبني</button></div>`);
+                });
+            </script>
+        </div>
+    </div>
+
+    <script>
+        function openTab(name) {
+            var i, sections, tabs;
+            sections = document.getElementsByClassName("content-section");
+            for (i = 0; i < sections.length; i++) { sections[i].className = sections[i].className.replace(" active", ""); }
+            tabs = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tabs.length; i++) { tabs[i].className = tabs[i].className.replace(" active", ""); }
+            document.getElementById(name).className += " active";
+            event.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>
+
+
+    <script>
+        function openSection(sectionName) {
+            var i;
+            var x = document.getElementsByClassName("content-section");
+            var tabs = document.getElementsByClassName("tab-link");
+            // إخفاء كافة الأقسام
+            for (i = 0; i < x.length; i++) {
+                x[i].className = x[i].className.replace(" active", "");
+            }
+            // إلغاء تفعيل كافة الأزرار
+            for (i = 0; i < tabs.length; i++) {
+                tabs[i].className = tabs[i].className.replace(" active", "");
+            }
+            // إظهار القسم المطلوب وتفعيل الزر
+            document.getElementById(sectionName).className += " active";
+            event.currentTarget.className += " active";
+        }
+    </script>
 
 </body>
 </html>
