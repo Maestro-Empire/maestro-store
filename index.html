@@ -3,31 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إمبراطورية المستر | التوقيع المائي</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@200;400;700&display=swap" rel="stylesheet">
+    <title>The Maestro | 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400&display=swap" rel="stylesheet">
     <style>
-        /* 1. إعدادات الصفحة الخلفية السوداء الفخمة */
         body {
-            background-color: #050505; /* أسود فاحم لإبراز الذهبي */
+            background-color: #050505;
             margin: 0;
-            padding: 0;
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
-            flex-direction: column;
-            align-items: flex-start; /* كل شيء أقصى الشمال */
-            position: relative; /* لتثبيت الخلفية المائية */
-            overflow: hidden; /* لمنع التمرير مؤقتاً لضبط الخلفية */
+            justify-content: center; /* التوسط الأفقي */
+            align-items: center;     /* التوسط الرأسي */
+            position: relative;
+            overflow: hidden;
         }
 
-        /* 2. الخلفية المائية (الـ H جوه الدائرة) */
+        /* الخلفية المائية: H داخل دائرة رفيعة */
         body::before {
-            content: ""; /* عنصر فارغ */
+            content: "";
             position: absolute;
-            top: 50%; /* في منتصف الصفحة تماماً */
-            left: 50%;
-            transform: translate(-50%, -50%); /* التوسط المثالي */
-            
-            /* رسم الدايرة والـ H */
-            width: 70vh; /* حجم ضخم يملأ الخلفية */
-            height: 70vh;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.
+            width: 60vh; 
+            height: 60vh;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" stroke="%23b8860b" stroke-width="0.5" fill="none"/><text x="50" y="62" font-family="Cinzel, serif" font-size="50" text-anchor="middle" fill="%23b8860b">H</text></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            opacity: 0.05; /* شفافة جداً */
+            z-index: 0;
+        }
+
+        /* كتلة التصميم الملمومة */
+        .brand-container {
+            position: relative;
+            z-index: 10;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center; /* محاذاة العناصر للنص */
+            text-align: center;
+        }
+
+        .main-name {
+            font-family: 'Great Vibes', cursive;
+            font-size: 45px; /* نفس حجم الصورة الأولى تقريباً */
+            color: #b8860b;
+            margin: 0;
+            line-height: 1;
+        }
+
+        /* السطر الرفيع (العصاية) */
+        .thin-line {
+            width: 100%;
+            border-bottom: 1px solid #b8860b;
+            margin: 10px 0;
+        }
+
+        .sub-text {
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: rgba(184, 134, 11, 0.8);
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="brand-container">
+        <div class="main-name">The Maestro</div>
+        <div class="thin-line"></div>
+        <div class="sub-text">Premium Collection • 2026</div>
+    </div>
+
+</body>
+</html>
