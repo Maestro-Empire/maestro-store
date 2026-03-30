@@ -2,68 +2,89 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MAESTRO | THE MINIMALIST SEAL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAESTRO EMPIRE</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel&display=swap" rel="stylesheet">
     <style>
         :root { 
-            --silver-base: #c0c0c0;
-            --void-black: #020202;
+            --silver: #e0e0e0;
+            --dark-silver: #888888;
+            --black-bg: #050505;
         }
-        body { background-color: var(--void-black); display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        
-        .seal-wrapper {
+
+        /* 🌌 1. الخلفية بمحفظتها (الخلفية السينمائية) */
+        body { 
+            background: radial-gradient(circle, #1a1a1a 0%, var(--black-bg) 70%);
+            margin: 0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            overflow: hidden;
+            color: var(--silver);
+        }
+
+        .container { text-align: center; }
+
+        /* 🔘 2. الختم (الدائرة والحروف المنفصلة) */
+        .seal-area {
             position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            display: inline-block;
+            margin-bottom: 20px;
         }
 
-        /* الكلمة من فوق بحروف منفصلة */
-        .top-label {
+        .label-text {
             font-family: 'Cinzel', serif;
-            color: var(--silver-base);
-            font-size: 1rem;
-            letter-spacing: 15px; /* مسافات كبيرة بين الحروف */
-            margin-bottom: 30px;
+            font-size: 0.8rem;
+            letter-spacing: 12px; /* حروف منفصلة فخمة */
             text-transform: uppercase;
+            color: var(--dark-silver);
         }
 
-        /* الدائرة المركزية وحرف H */
-        .main-circle {
-            width: 220px; height: 220px;
-            border: 2px solid var(--silver-base); /* إطار أنحف وأشيك */
+        .circle-border {
+            width: 200px;
+            height: 200px;
+            border: 1px solid var(--silver); /* خط واحد رفيع وشيك */
             border-radius: 50%;
-            display: flex; justify-content: center; align-items: center;
-            box-shadow: 0 0 30px rgba(192, 192, 192, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
         }
 
-        .emblem-h {
+        .main-h {
             font-family: 'Great Vibes', cursive;
-            color: var(--silver-base);
-            font-size: 9rem;
+            font-size: 8rem;
             margin: 0;
-            text-shadow: 3px 3px 10px rgba(0,0,0,0.8);
+            /* تأثير البروز 2 مللي */
+            text-shadow: 2px 2px 0px #333, 4px 4px 10px rgba(0,0,0,0.8);
         }
 
-        /* التاريخ من تحت بحروف منفصلة */
-        .bottom-label {
-            font-family: 'Cinzel', serif;
-            color: var(--silver-base);
-            font-size: 1.2rem;
-            letter-spacing: 20px; /* مسافات واسعة جداً */
-            margin-top: 35px;
+        /* 🖋️ 3. اسم المايسترو */
+        .brand-name {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            margin-top: 10px;
+            color: var(--silver);
         }
     </style>
 </head>
 <body>
-    <div class="seal-wrapper">
-        <div class="top-label">E S T A B L I S H E D</div>
-        
-        <div class="main-circle">
-            <h1 class="emblem-h">H</h1>
+
+    <div class="container">
+        <div class="label-text">E S T A B L I S H E D</div>
+
+        <div class="seal-area">
+            <div class="circle-border">
+                <h1 class="main-h">H</h1>
+            </div>
         </div>
 
-        <div class="bottom-label">2 0 2 6</div>
+        <div class="label-text">2 0 2 6</div>
+
+        <div class="brand-name">Maestro</div>
     </div>
+
 </body>
 </html>
