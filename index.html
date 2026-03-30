@@ -3,83 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAESTRO EMPIRE | إمبراطورية المايسترو</title>
+    <title>إمبراطورية المايسترو - Maestro Empire</title>
     <style>
         :root { --gold: #c5a059; --dark: #050505; }
-        body { background-color: var(--dark); color: white; font-family: 'Times New Roman', serif; margin: 0; padding: 0; text-align: center; }
+        body { background-color: var(--dark); color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; margin: 0; padding: 0; }
         
-        /* واجهة الموقع الرئيسية */
-        .hero { height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; 
-                background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1550985543-f47f38aee65e?w=1000'); 
-                background-size: cover; background-position: center; border-bottom: 2px solid var(--gold); }
-        .hero h1 { font-size: 4rem; color: var(--gold); letter-spacing: 8px; margin: 0; text-transform: uppercase; }
-        .hero p { font-size: 1.2rem; color: #ccc; margin-top: 10px; letter-spacing: 3px; }
+        .header { padding: 40px 20px; background: #000; border-bottom: 1px solid var(--gold); }
+        h1 { color: var(--gold); font-size: 3rem; margin: 0; letter-spacing: 5px; text-transform: uppercase; font-family: 'Times New Roman', serif; }
+        .motto { color: #888; font-size: 1.1em; margin-top: 10px; letter-spacing: 2px; }
 
-        .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
-        .section-title { color: var(--gold); font-size: 2.2rem; margin-bottom: 50px; border-bottom: 1px solid var(--gold); display: inline-block; padding-bottom: 10px; }
+        .container { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
+        .section-title { color: var(--gold); font-size: 2.2rem; margin-bottom: 40px; border-bottom: 1px solid var(--gold); display: inline-block; padding-bottom: 10px; }
 
-        /* الألبوم الاحترافي */
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .item { position: relative; overflow: hidden; height: 450px; border: 1px solid #1a1a1a; border-radius: 5px; }
-        .item img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s; filter: grayscale(30%); }
-        .item:hover img { transform: scale(1.1); filter: grayscale(0%); }
+        /* الكروت الفخمة */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card { background-color: #000; border: 1px solid #222; border-radius: 15px; padding: 25px; transition: 0.3s; }
+        .card:hover { border-color: var(--gold); transform: translateY(-5px); }
         
-        .overlay { position: absolute; bottom: 0; width: 100%; padding: 30px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); text-align: right; }
-        .overlay h3 { color: var(--gold); margin: 0; font-size: 1.4rem; letter-spacing: 1px; }
-        .overlay p { color: #fff; font-size: 0.9rem; margin-top: 5px; }
-
-        /* زر الإعجاب الفاخر */
-        .like-btn { background: none; border: 1px solid var(--gold); color: var(--gold); padding: 8px 25px; border-radius: 0; cursor: pointer; margin-top: 15px; transition: 0.3s; }
+        /* الصورة الفخمة الواحدة */
+        .card img { width: 100%; height: 350px; border-radius: 10px; object-fit: cover; border: 2px solid #222; margin-bottom: 15px; }
+        .card:hover img { border-color: var(--gold); }
+        
+        .card-title { font-size: 1.4em; color: var(--gold); margin-bottom: 10px; }
+        .card-desc { color: #ccc; font-size: 1em; margin-bottom: 15px; }
+        
+        .like-btn { background: none; border: 1px solid var(--gold); color: var(--gold); padding: 8px 25px; border-radius: 20px; cursor: pointer; transition: 0.3s; }
         .like-btn:hover { background: var(--gold); color: black; }
 
-        footer { padding: 60px; color: #444; font-size: 0.8rem; letter-spacing: 2px; border-top: 1px solid #111; }
+        footer { padding: 40px; border-top: 1px solid #111; color: #444; font-size: 0.8em; letter-spacing: 2px; margin-top: 50px; }
     </style>
 </head>
 <body>
 
-    <div class="hero">
+    <div class="header">
         <h1>MAESTRO</h1>
-        <p>THE ART OF LUXURY LIVING</p>
+        <p class="motto">THE ART OF LUXURY LIVING</p>
     </div>
 
     <div class="container">
         <div class="section-title">مختارات النخبة</div>
         
-        <div class="gallery">
-            <div class="item">
-                <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500">
-                <div class="overlay">
-                    <h3>Modern Eyewear</h3>
-                    <p>أحدث صيحات النظارات العالمية</p>
-                    <button class="like-btn" onclick="this.innerHTML='❤️ Added'">أعجبني</button>
-                </div>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500" alt="نظارات">
+                <div class="card-title">Modern Eyewear</div>
+                <p class="card-desc">أحدث صيحات النظارات العالمية</p>
+                <button class="like-btn" onclick="this.innerHTML='❤️ Added'">أعجبني</button>
             </div>
 
-            <div class="item">
-                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500">
-                <div class="overlay">
-                    <h3>Elite Motors</h3>
-                    <p>عالم القوة والفخامة</p>
-                    <button class="like-btn" onclick="this.innerHTML='❤️ Added'">أعجبني</button>
-                </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500" alt="سيارات">
+                <div class="card-title">Elite Motors</div>
+                <p class="card-desc">عالم القوة والفخامة</p>
+                <button class="like-btn" onclick="this.innerHTML='❤️ Added'">أعجبني</button>
             </div>
 
-            <div class="item">
-                <img src="https://images.unsplash.com/photo-1510132334053-157930969623?w=500">
-                <div class="overlay">
-                    <h3>Premium Selection</h3>
-                    <p>سيجار ملكي لمحبي التميز</p>
-                    <button class="like-btn" onclick="this.innerHTML='❤️ Added'">أعجبني</button>
-                </div>
-            </div>
-
-            <div class="item">
-                <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=500">
-                <div class="overlay">
-                    <h3>Royal Essence</h3>
-                    <p>عبير الفخامة والجاذبية</p>
-                    <button class="like-btn" onclick="this.innerHTML='❤️ Added'">أعجبني</button>
-                </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1510132334053-157930969623?w=500" alt="سيجار">
+                <div class="card-title">Premium Selection</div>
+                <p class="card-desc">سيجار هافانا وعطور ملكية</p>
+                <button class="like-btn" onclick="this.innerHTML='❤️ Added'">أعجبني</button>
             </div>
         </div>
     </div>
