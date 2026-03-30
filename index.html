@@ -1,12 +1,88 @@
 <!DOCTYPE html>
-<html>
-<body style="background-color:black; color:gold; text-align:center; padding-top:200px; font-family:serif;">
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background-color: #000; /* خلفية سوداء فخمة */
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center; /* التوسط الأفقي */
+            align-items: center;     /* التوسط الرأسي */
+            font-family: 'Times New Roman', serif;
+        }
 
-    <h1 style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:300px; opacity:0.1; margin:0;">H</h1>
+        /* حاوية التصميم الملمومة */
+        .brand-identity {
+            position: relative;
+            text-align: center;
+            color: #b8860b; /* ذهبي ملكي */
+            padding: 20px;
+            border: 1px solid rgba(184, 134, 11, 0.2); /* إطار خفيف جداً لإغلاق الهوامش */
+        }
 
-    <div style="position:relative; z-index:1;">
-        <h2 style="font-size:50px; margin:0; border-bottom: 2px solid gold; display:inline-block; padding-bottom:10px;">The Maestro</h2>
-        <p style="letter-spacing:5px; font-size:20px;">PREMIUM COLLECTION 2026</p>
+        /* 1. اللوجو (الـ H جوه الدايرة) كرمز علوي */
+        .logo-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+        }
+
+        /* 2. اسم الشركة (الخط الفرنساوي/الكلاسيكي) */
+        .company-name {
+            font-size: 45px;
+            margin: 0;
+            font-style: italic;
+            letter-spacing: 2px;
+        }
+
+        /* 3. الخط المشدود (العصاية) */
+        .separator-line {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #b8860b, transparent);
+            margin: 15px 0;
+        }
+
+        /* 4. تفاصيل التأسيس والماركة */
+        .foundation-tag {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            opacity: 0.8;
+        }
+
+        /* 5. العلامة المائية (H ضخمة في الخلفية) */
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 400px;
+            color: #111; /* باهتة جداً */
+            z-index: -1;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="watermark">H</div>
+
+    <div class="brand-identity">
+        <div class="logo-icon">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" stroke="#b8860b" stroke-width="2" fill="none" />
+                <text x="50" y="68" font-family="serif" font-size="50" text-anchor="middle" fill="#b8860b">H</text>
+            </svg>
+        </div>
+
+        <h1 class="company-name">The Maestro</h1>
+
+        <div class="separator-line"></div>
+
+        <div class="foundation-tag">Premium Brand • Est. 2026</div>
     </div>
 
 </body>
