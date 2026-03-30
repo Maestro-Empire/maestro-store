@@ -2,117 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAESTRO EMPIRE | THE ULTIMATE LOGO</title>
+    <title>MAESTRO EMPIRE | CIRCULAR SEAL</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel&display=swap" rel="stylesheet">
     <style>
         :root { 
-            --gold-base: #b8860b; /* ذهبي ملكي غامق ونحاسي (Dark Goldenrod) - لون العملات والأسهم */
-            --gold-shine: #ffd700; /* ذهبي فاتح لامع للإضاءة (Gold) */
-            --gold-shadow: #8b6508; /* ذهبي داكن للظل (Dark Goldenrod) */
-            --void-black: #020202; /* أسود قاتم جداً (أعمق من الفحم) - خلفية فخمة */
+            --gold-base: #b8860b;
+            --void-black: #020202;
         }
+        body { background-color: var(--void-black); display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
         
-        body { background-color: var(--void-black); margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden;}
+        .seal-container { position: relative; width: 300px; height: 300px; display: flex; justify-content: center; align-items: center; }
 
-        /* حاوية الشعار المتكامل */
-        .ultimate-brand-container { text-align: center; position: relative; }
-
-        /* 👑 1. الرمز الملكي العالمي (The Ultimate Emblem) */
-        .global-emblem {
+        /* الدائرة المركزية وحرف H */
+        .main-circle {
+            width: 200px; height: 200px;
+            border: 4px solid var(--gold-base);
+            border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
             position: relative;
-            width: 250px; /* مقاس فخم للشعار */
-            height: 250px;
-            margin: 0 auto 40px;
-            border: 4px solid var(--gold-base); /* إطار ذهبي سميك وقوي (الكرة الأرضية) */
-            border-radius: 50%; /* شكل الكرة الأرضية والدائرة المحكمة */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 0 80px rgba(184, 134, 11, 0.3); /* ظل ذهبي عميق */
-            background: rgba(184, 134, 11, 0.05); /* تفرغ خلفي خفيف */
-            overflow: hidden; /* لاحتواء العناصر */
         }
-        
-        /* 🖋️ حرف H (البارز والسميك) - فخامة الفرنسية الذهبية */
         .emblem-h {
-            font-family: 'Great Vibes', cursive; /* خط فرنسي انسيابي كأنه توقيع ريشة - تخانة وفخامة */
-            color: var(--gold-base); /* لون الحرف الأساسي ذهبي */
-            font-size: 10rem; /* مقاس ضخم جداً وبارز */
-            margin: 0;
-            line-height: 1;
-            font-weight: 400; /* انسيابية الخط */
-            position: relative;
-            z-index: 10;
-            
-            /* تأثير البروز واللمعان الذهبي (Emboss & Bevel) */
-            text-shadow: 
-                /* إضاءة علوية (البروز لبره) */
-                -1px -1px 1px var(--gold-shine), 
-                -2px -2px 2px var(--gold-shine),
-                
-                /* ظل سفلي (العمق لبره) */
-                1px 1px 1px var(--gold-shadow),
-                2px 2px 2px var(--gold-shadow),
-                3px 3px 3px var(--gold-shadow),
-                
-                /* ظل عميق خلفي لإبراز الحرف عن الخلفية */
-                5px 5px 15px rgba(0,0,0,0.8);
-        }
-
-        /* 👑 التاج فوق الرمز العالمي (الذهبي) */
-        .global-emblem .crown {
-            position: absolute;
-            top: -45px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 3.5rem; /* مقاس كبير للتاج */
+            font-family: 'Great Vibes', cursive;
             color: var(--gold-base);
-            z-index: 20;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            font-size: 8rem;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
         }
 
-        /* 📅 إضافة تاريخ التأسيس أسفل حرف الـ H */
-        .establishment-date {
+        /* النصوص المنحنية (فوق وتحت) */
+        .curved-text {
             position: absolute;
-            bottom: 25px; /* مكانه أسفل الرمز */
-            width: 100%;
-            text-align: center;
-            font-family: 'Cinzel', serif; /* خط كلاسيكي وواضح */
+            width: 100%; height: 100%;
+            font-family: 'Cinzel', serif;
             color: var(--gold-base);
-            font-size: 0.9rem;
-            letter-spacing: 4px; /* تباعد الحروف */
-            text-transform: uppercase;
-            z-index: 15;
-            opacity: 0.8;
+            font-size: 1.2rem;
+            letter-spacing: 5px;
         }
-
-        /* 🖋️ 2. التوقيع الفرنسي الفخم (The Signature) */
-        .signature-text {
-            font-family: 'Great Vibes', cursive; /* خط فرنسي انسيابي كأنه توقيع ريشة - تخانة وفخامة */
-            color: var(--gold-base); /* لون التوقيع ذهبي */
-            font-size: 5.5rem; /* مقاس كبير جداً وفخم */
-            margin: 0;
-            letter-spacing: -2px; /* حروف متصلة */
-            text-shadow: 
-                -1px -1px 1px var(--gold-shine),
-                1px 1px 1px var(--gold-shadow),
-                3px 3px 12px rgba(0,0,0,0.9); /* ظل عميق لإبراز التوقيع */
-            font-weight: 400; /* انسيابية الخط */
-        }
+        .top-text { top: -20px; text-align: center; width: 100%; }
+        .bottom-text { bottom: -20px; text-align: center; width: 100%; }
     </style>
 </head>
 <body>
-
-    <div class="ultimate-brand-container">
-        <div class="global-emblem">
-            <div class="crown">👑</div>
-            <h1 class="emblem-h">H</h1>
-            <div class="establishment-date">EST. 2026</div>
-        </div>
+    <div class="seal-container">
+        <div class="top-text curved-text">ESTABLISHED</div>
         
-        <h1 class="signature-text">Maestro</h1>
-    </div>
+        <div class="main-circle">
+            <h1 class="emblem-h">H</h1>
+        </div>
 
+        <div class="bottom-text curved-text">2026</div>
+    </div>
 </body>
 </html>
