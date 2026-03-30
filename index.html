@@ -3,37 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAESTRO EMPIRE | EYEWEAR</title>
+    <title>إمبراطورية المايسترو - نظارات</title>
     <style>
         :root { --gold: #d4af37; --dark: #0b0e14; --card-bg: #161b22; }
         body { background-color: var(--dark); color: white; font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; text-align: center; }
         
         /* الهيدر */
-        .header { padding: 50px 20px; background: #1c2128; border-bottom: 3px solid var(--gold); }
-        h1 { color: var(--gold); font-size: 3rem; margin: 0; letter-spacing: 8px; }
-        .motto { color: #8b949e; font-size: 1.2rem; margin-top: 10px; } 
+        .header { padding: 40px 20px; background: #1c2128; border-bottom: 3px solid var(--gold); }
+        h1 { color: var(--gold); font-size: 2.5rem; margin: 0; letter-spacing: 5px; }
+        .motto { color: #8b949e; font-size: 1.1rem; margin-top: 10px; } 
 
-        /* تنسيق الشبكة العرضية 5 في الصف */
+        /* تنسيق العرض (5 أعمدة) */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(5, 1fr); 
+            grid-template-columns: repeat(5, 1fr); /* 5 صور جنب بعض */
             gap: 20px;
-            max-width: 1400px;
+            max-width: 1300px;
             margin: 40px auto;
             padding: 0 20px;
         } 
 
-        /* الكارت */
+        /* الكارت الفخم */
         .card { 
             background-color: var(--card-bg); 
             border: 1px solid #30363d; 
             border-radius: 20px; 
             padding: 20px; 
-            transition: 0.4s; 
+            transition: 0.3s; 
         }
-        .card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 10px 20px rgba(0,0,0,0.5); } 
+        .card:hover { transform: translateY(-10px); border-color: var(--gold); } 
 
-        /* الصور الدائرية */
+        /* الصورة الدائرية */
         .card img { 
             width: 140px; 
             height: 140px; 
@@ -41,42 +41,80 @@
             object-fit: cover; 
             border: 3px solid var(--gold); 
             margin-bottom: 15px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         } 
 
-        .card-title { color: var(--gold); font-size: 1.1rem; font-weight: bold; margin-bottom: 15px; }
+        .card-title { color: var(--gold); font-size: 1rem; font-weight: bold; margin-bottom: 12px; }
         
         .like-btn { 
             background: none; border: 1px solid var(--gold); color: var(--gold); 
-            padding: 8px 20px; border-radius: 20px; cursor: pointer; transition: 0.3s;
+            padding: 6px 15px; border-radius: 20px; cursor: pointer; font-size: 0.8rem;
         }
         .like-btn:hover { background: var(--gold); color: black; } 
 
-        /* للموبايل */
-        @media (max-width: 1100px) { .grid-container { grid-template-columns: repeat(3, 1fr); } }
-        @media (max-width: 700px) { .grid-container { grid-template-columns: repeat(2, 1fr); } }
+        /* استجابة الموبايل */
+        @media (max-width: 1000px) { .grid-container { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 600px) { .grid-container { grid-template-columns: repeat(2, 1fr); } }
     </style>
 </head> 
 <body>
 
     <div class="header">
         <h1>إمبراطورية المايسترو</h1>
-        <p class="motto">مجموعة النظارات الحصرية 2026</p>
+        <p class="motto">مجموعة النظارات الحصرية • فخامة 2026</p>
     </div> 
 
     <div class="grid-container">
-        <div class="card"><img src="https://images.pexels.com/photos/701877/pexels-photo-701877.jpeg?w=400"><div class="card-title">نظارة موديل 1</div><button class="like-btn">❤️ أعجبني</button></div>
-        <div class="card"><img src="https://images.pexels.com/photos/46710/pexels-photo-46710.jpeg?w=400"><div class="card-title">نظارة موديل 2</div><button class="like-btn">❤️ أعجبني</button></div>
-        <div class="card"><img src="https://images.pexels.com/photos/1499477/pexels-photo-1499477.jpeg?w=400"><div class="card-title">نظارة موديل 3</div><button class="like-btn">❤️ أعجبني</button></div>
-        <div class="card"><img src="https://images.pexels.com/photos/1362550/pexels-photo-1362550.jpeg?w=400"><div class="card-title">نظارة موديل 4</div><button class="like-btn">❤️ أعجبني</button></div>
-        <div class="card"><img src="https://images.pexels.com/photos/1549004/pexels-photo-1549004.jpeg?w=400"><div class="card-title">نظارة موديل 5</div><button class="like-btn">❤️ أعجبني</button></div>
-        <div class="card"><img src="https://images.pexels.com/photos/39716/sunglasses-glasses-dark-glasses-shades-39716.jpeg?w=400"><div class="card-title">نظارة موديل 6</div><button class="like-btn">❤️ أعجبني</button></div>
-        <div class="card"><img src="https://images.pexels.com/photos/185764/pexels-photo-185764.jpeg?w=400"><div class="card-title">نظارة موديل 7</div><button class="like-btn">❤️ أعجبني</button></div>
-        <div class="card"><img src="https://images.pexels.com/photos/2811088/pexels-photo-2811088.jpeg?w=400"><div class="card-title">نظارة موديل 8</div><button class="like-btn">❤️ أعجبني</button></div>
-        <div class="card"><img src="https://images.pexels.com/photos/1493108/pexels-photo-1493108.jpeg?w=400"><div class="card-title">نظارة موديل 9</div><button class="like-btn">❤️ أعجبني</button></div>
-        <div class="card"><img src="https://images.pexels.com/photos/165448/pexels-photo-165448.jpeg?w=400"><div class="card-title">نظارة موديل 10</div><button class="like-btn">❤️ أعجبني</button></div>
+        <div class="card"><img src="https://images.pexels.com/photos/701877/pexels-photo-701877.jpeg?w=400"><div class="card-title">موديل كلاسيك 1</div><button class="like-btn">❤️ أعجبني</button></div>
+        <div class="card"><img src="https://images.pexels.com/photos/46710/pexels-photo-46710.jpeg?w=400"><div class="card-title">موديل تيتانيوم 2</div><button class="like-btn">❤️ أعجبني</button></div>
+        <div class="card"><img src="https://images.pexels.com/photos/1499477/pexels-photo-1499477.jpeg?w=400"><div class="card-title">موديل ذهبي 3</div><button class="like-btn">❤️ أعجبني</button></div>
+        <div class="card"><img src="https://images.pexels.com/photos/1362550/pexels-photo-1362550.jpeg?w=400"><div class="card-title">موديل رياضي 4</div><button class="like-btn">❤️ أعجبني</button></div>
+        <div class="card"><img src="https://images.pexels.com/photos/1549004/pexels-photo-1549004.jpeg?w=400"><div class="card-title">موديل عصري 5</div><button class="like-btn">❤️ أعجبني</button></div>
+        
+        <div class="card"><img src="https://images.pexels.com/photos/39716/sunglasses-glasses-dark-glasses-shades-39716.jpeg?w=400"><div class="card-title">موديل بلاك 6</div><button class="like-btn">❤️ أعجبني</button></div>
+        <div class="card"><img src="https://images.pexels.com/photos/185764/pexels-photo-185764.jpeg?w=400"><div class="card-title">موديل طيارين 7</div><button class="like-btn">❤️ أعجبني</button></div>
+        <div class="card"><img src="https://images.pexels.com/photos/2811088/pexels-photo-2811088.jpeg?w=400"><div class="card-title">موديل ملكي 8</div><button class="like-btn">❤️ أعجبني</button></div>
+        <div class="card"><img src="https://images.pexels.com/photos/1493108/pexels-photo-1493108.jpeg?w=400"><div class="card-title">موديل فخم 9</div><button class="like-btn">❤️ أعجبني</button></div>
+        <div class="card"><img src="https://images.pexels.com/photos/165448/pexels-photo-165448.jpeg?w=400"><div class="card-title">موديل خاص 10</div><button class="like-btn">❤️ أعجبني</button></div>
+    </div>
+    <div class="header" style="margin-top: 50px; border-top: 2px solid var(--gold);">
+        <h1>قسم العطور الملكية</h1>
+        <p class="motto">روائح تعكس شخصية المايسترو</p>
     </div>
 
-    <footer style="padding: 30px; color: #444;">MAESTRO EMPIRE &copy; 2026</footer>
+    <div class="grid-container">
+        <div class="card"><img src="https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?w=400"><div class="card-title">عطر لورد 1</div><button class="like-btn">❤️ أعجبني</button></div>
+        <div class="card"><img src="https://images.pexels.com/photos/1961795/pexels-photo-1961795.jpeg?w=400"><div class="card-title">عطر كينج 2</div><button class="like-btn">❤️ أعجبني</button></div>
+        <div class="card"><img src="https://images.pexels.com/photos/1556706/pexels-photo-1556706.jpeg?w=400"><div class="card-title">عطر فيكتور 3</div><button class="like-btn">❤️ أعجبني</button></div>
+        <div class="card"><img src="https://images.pexels.com/photos/258244/pexels-photo-258244.jpeg?w=400"><div class="card-title">عطر كلاسيك 4</div><button class="like-btn">❤️ أعجبني</button></div>
+        <div class="card"><img src="https://images.pexels.com/photos/932577/pexels-photo-932577.jpeg?w=400"><div class="card-title">عطر رويال 5</div><button class="like-btn">❤️ أعجبني</button></div>
+        
+        <div class="card"><img src="https://images.pexels.com/photos/755992/pexels-photo-755992.jpeg?w=400"><div class="card-title">عطر إليت 6</div><button class="like-btn">❤️ أعجبني</button></div>
+        <div class="card"><img src="https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg?w=400"><div class="card-title">عطر برستيج 7</div><button class="like-btn">❤️ أعجبني</button></div>
+        <div class="card"><img src="https://images.pexels.com/photos/2701570/pexels-photo-2701570.jpeg?w=400"><div class="card-title">عطر كاريزما 8</div><button class="like-btn">❤️ أعجبني</button></div>
+        <div class="card"><img src="https://images.pexels.com/photos/3059609/pexels-photo-3059609.jpeg?w=400"><div class="card-title">عطر أسطوري 9</div><button class="like-btn">❤️ أعجبني</button></div>
+        <div class="card"><img src="https://images.pexels.com/photos/264950/pexels-photo-264950.jpeg?w=400"><div class="card-title">عطر سحر 10</div><button class="like-btn">❤️ أعجبني</button></div>
+        <div>
+                <div class="header" style="margin-top: 50px; border-top: 2px solid var(--gold); background: linear-gradient(145deg, #1c2128, #0b0e14);">
+        <h1>قسم الساعات الملكية</h1>
+        <p class="motto">الدقة والوقت.. أساس التميز</p>
+    </div>
+
+    <div class="grid-container">
+        <div class="card"><img src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?w=400"><div class="card-title">ساعة برستيج 1</div><button class="like-btn">❤️ أعجبني</button></div>
+        <div class="card"><img src="https://images.pexels.com/photos/2113994/pexels-photo-2113994.jpeg?w=400"><div class="card-title">ساعة إليت 2</div><button class="like-btn">❤️ أعجبني</button></div>
+        <div class="card"><img src="https://images.pexels.com/photos/277390/pexels-photo-277390.jpeg?w=400"><div class="card-title">ساعة كلاسيك 3</div><button class="like-btn">❤️ أعجبني</button></div>
+        <div class="card"><img src="https://images.pexels.com/photos/280250/pexels-photo-280250.jpeg?w=400"><div class="card-title">ساعة رويال 4</div><button class="like-btn">❤️ أعجبني</button></div>
+        <div class="card"><img src="https://images.pexels.com/photos/1152331/pexels-photo-1152331.jpeg?w=400"><div class="card-title">ساعة تيتانيوم 5</div><button class="like-btn">❤️ أعجبني</button></div>
+        
+        <div class="card"><img src="https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?w=400"><div class="card-title">ساعة رياضية 6</div><button class="like-btn">❤️ أعجبني</button></div>
+        <div class="card"><img src="https://images.pexels.com/photos/236915/pexels-photo-236915.jpeg?w=400"><div class="card-title">ساعة جولد 7</div><button class="like-btn">❤️ أعجبني</button></div>
+        <div class="card"><img src="https://images.pexels.com/photos/380782/pexels-photo-380782.jpeg?w=400"><div class="card-title">ساعة ماستر 8</div><button class="like-btn">❤️ أعجبني</button></div>
+        <div class="card"><img src="https://images.pexels.com/photos/2783873/pexels-photo-2783873.jpeg?w=400"><div class="card-title">ساعة كاريزما 9</div><button class="like-btn">❤️ أعجبني</button></div>
+        <div class="card"><img src="https://images.pexels.com/photos/1257733/pexels-photo-1257733.jpeg?w=400"><div class="card-title">ساعة أسطورية 10</div><button class="like-btn">❤️ أعجبني</button></div>
+    </div>
+            
+    <footer style="padding: 20px; color: #333; font-size: 0.8rem;">MAESTRO EMPIRE &copy; 2026</footer>
 
 </body>
 </html>
