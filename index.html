@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>واجهة الشركة - المسودة الأولى</title>
+    <title>إمبراطورية المستر | 2026 Collection</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* 1. إعدادات الصفحة الأساسية (الخلفية السوداء الفخمة) */
+        /* 1. إعدادات الصفحة الخلفية السوداء الفخمة */
         body {
             background: radial-gradient(circle, #1a1a1a 0%, #050505 100%); /* خلفية سوداء بتدرج خفيف */
             margin: 0;
@@ -16,45 +16,55 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            /* الغاء التوسيط ليكون التصميم في الركن */
-            align-items: flex-start; 
+            align-items: flex-start; /* محاذاة كل شيء أقصى الشمال */
         }
 
-        /* 2. حاوية "كتلة المعلومات" في أقصى الشمال */
-        .brand-corner {
-            position: absolute; /* تثبيت في مكان محدد */
+        /* 2. حاوية "الكتلة المعلوماتية" في الركن (على أخر موضة: ملمومة) */
+        .brand-block {
+            position: absolute; /* تثبيت الكتلة */
             top: 20px; /* مسافة بسيطة من الأعلى */
             left: 20px; /* مسافة بسيطة من الشمال */
             display: flex;
             flex-direction: column; /* العناصر فوق بعضها */
-            align-items: flex-start; /* محاذاة للشمال */
-            border-bottom: 1px solid #b8860b; /* السطر الرفيع جداً تحت الكتلة كلها */
-            padding-bottom: 5px; /* مسافة بسيطة فوق السطر */
+            align-items: flex-start; /* محاذاة جهة الشمال */
+            border-bottom: 2px solid #b8860b; /* السطر الرفيع جداً تحت الكتلة */
+            padding-bottom: 10px; /* مسافة فوق السطر */
+            max-width: 150px; /* تحديد عرض صغير للكتلة (على أخر موضة) */
         }
 
-        /* 3. تنسيق اسم الشركة (السطر الأول) */
+        /* 3. تنسيق اسم الشركة (على سطر واحد فوق) */
         .company-name {
-            font-family: 'Great+Vibes', cursive; /* خط التوقيع الفاخر */
-            font-size: 24px; /* مقاس صغير وملموم */
-            font-weight: bold;
-            margin-bottom: 2px; /* مسافة صغيرة جداً تحت الاسم */
+            font-family: 'Great Vibes', cursive; /* خط التوقيع الفاخر */
+            font-size: 26px; /* مقاس ملموم */
+            margin-bottom: 3px; /* مسافة صغيرة جداً */
+            white-space: nowrap; /* الاسم لا ينكسر لسطر جديد */
         }
 
-        /* 4. تنسيق الماركة والسنة (السطر الثاني) */
-        .brand-details {
+        /* 4. تنسيق الماركة والسنة (تحت بعض بخط أرفع) */
+        .brand-subtext {
             font-size: 14px; /* أصغر وأرفع */
-            letter-spacing: 1px; /* مسافة بين الحروف للشياكة */
-            color: #d4af37; /* ذهبي أفتح قليلاً */
+            letter-spacing: 1px; /* مسافة بين الحروف */
+            color: #d4af37; /* ذهبي أفتح */
+        }
+
+        /* 5. شكل العلامة التجارية (الـ H) */
+        .brand-logo {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 3px; /* مسافة فوق السنة */
         }
 
     </style>
 </head>
 <body>
 
-    <div class="brand-corner">
-        <div class="company-name">اسم الشركة هنا</div>
+    <div class="brand-block">
+        <div class="company-name">The Maestro</div>
         
-        <div class="brand-details">H • EST. 2026</div>
+        <div class="brand-subtext">
+            <div class="brand-logo">H Brand</div>
+            <div class="est-year">Est. 2026</div>
+        </div>
     </div>
 
 </body>
