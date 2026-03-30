@@ -1,60 +1,170 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إمبراطورية المايسترو | MAESTRO EMPIRE</title>
+    <title>MAESTRO EMPIRE | GLOBAL INVESTMENTS & LUXURY</title>
     <style>
-        :root { --gold: #d4af37; --dark: #06080a; --card-bg: #12161d; }
-        body { background-color: var(--dark); color: white; font-family: 'Segoe UI', Tahoma, sans-serif; text-align: center; margin: 0; }
+        /* تعريف الألوان السلطانية (الأسود العميق × الذهبي النحاسي الغامق) */
+        :root { 
+            --deep-gold: #b8860b; /* ذهبي غامق نحاسي عتيق (Dark Goldenrod) */
+            --void-black: #010101; /* أسود أعمق قريب من السواد المطلق */
+            --glass-bg: rgba(15, 15, 15, 0.6); /* خلفية سوداء شفافة (تأثير التفرغ) */
+        }
         
-        /* هيدر السلطان */
-        .header { padding: 30px; background: linear-gradient(to bottom, #1c2128, var(--dark)); border-bottom: 2px solid var(--gold); }
-        .header h1 { color: var(--gold); font-size: 2.2rem; margin: 0; text-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
+        body { background-color: var(--void-black); color: white; font-family: 'Poppins', sans-serif; margin: 0; padding-bottom: 50px; overflow-x: hidden; }
         
-        /* عداد الإعجابات الملكي */
-        .stat-bar { background: var(--gold); color: black; padding: 5px; font-weight: bold; font-size: 0.9rem; position: sticky; top: 0; z-index: 2000; }
+        /* هيدر السلطان (التوقيع الرسمي) */
+        .header { 
+            background: var(--glass-bg); 
+            backdrop-filter: blur(15px); /* تأثير التفرغ والضباب */
+            border-bottom: 2px solid rgba(184, 134, 11, 0.2); /* حد ذهبي خفيف جداً */
+            padding: 100px 20px; 
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8); /* ظل فخم */
+            position: relative;
+        }
+        
+        /* الاسم English الفخم (توقيع المايسترو) */
+        .header h1 { 
+            font-family: 'Playfair Display', serif; /* خط إنجليزي عالمي فخم */
+            color: var(--deep-gold); 
+            font-size: 3.5rem; 
+            margin: 0; 
+            text-transform: uppercase; /* أحرف كبيرة */
+            letter-spacing: 15px; /* مسافات واسعة جداً */
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.6); /* ظل عميق للذهبي */
+            font-weight: 300; /* خط رفيع وانسيابي */
+        }
+        
+        /* شعار التوقيع (Monogram Signature) */
+        .signature-monogram {
+            font-size: 0.8rem;
+            color: rgba(184, 134, 11, 0.6); /* ذهبي خفيف */
+            letter-spacing: 8px;
+            margin-top: 15px;
+            font-weight: 300;
+        }
 
-        .tab-bar { display: flex; justify-content: center; background: #1c2128; padding: 10px; position: sticky; top: 31px; z-index: 1000; border-bottom: 1px solid #30363d; }
-        .tab-link { background: none; border: none; color: #8b949e; padding: 10px 15px; cursor: pointer; font-weight: bold; transition: 0.3s; }
-        .tab-link.active { color: var(--gold); transform: scale(1.1); }
+        /* شريط الإعجابات الملكي (عداد التفاعل) */
+        .stat-bar { 
+            background: var(--deep-gold); 
+            color: black; 
+            padding: 8px; 
+            font-weight: bold; 
+            font-size: 0.9rem; 
+            position: sticky; 
+            top: 0; 
+            z-index: 2000; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
 
-        .content-section { display: none; padding: 20px; animation: fadeIn 0.8s ease; }
+        /* شريط الأقسام (نظارات، ساعات، عطور) */
+        .tab-bar { 
+            display: flex; 
+            justify-content: center; 
+            background: #0a0a0a; 
+            padding: 15px; 
+            position: sticky; 
+            top: 36px; /* أسفل عداد الإعجابات */
+            z-index: 1000; 
+            border-bottom: 1px solid rgba(184, 134, 11, 0.1); 
+        }
+        
+        .tab-link { 
+            background: none; 
+            border: none; 
+            color: #666; 
+            padding: 10px 20px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 1rem;
+            transition: 0.4s; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .tab-link.active { color: var(--deep-gold); border-bottom: 2px solid var(--deep-gold); transform: scale(1.05); }
+
+        /* حاوية الأقسام والممر الملكي */
+        .content-section { display: none; padding: 40px 20px; animation: fadeIn 0.8s ease; }
         .content-section.active { display: block; }
 
-        /* ممر السلطان: 2 في كل صف */
+        /* ممر السلطان (2 في كل صف) بدقة البورصة */
         .grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            max-width: 500px;
+            grid-template-columns: 1fr 1fr; /* 2 في الصف بدقة */
+            gap: 25px;
+            max-width: 600px; /* العرض المثالي للتوسيط */
             margin: 0 auto;
         }
 
         .card { 
-            background-color: var(--card-bg); 
-            border: 1px solid #252d38; 
+            background-color: #0d0d0d; 
+            border: 1px solid rgba(184, 134, 11, 0.1); 
             border-radius: 20px; 
-            padding: 15px; 
-            transition: 0.4s;
+            padding: 20px; 
+            transition: 0.5s; 
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
-        .card:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); }
         
+        .card:hover { border-color: var(--deep-gold); transform: translateY(-10px); box-shadow: 0 15px 30px rgba(184, 134, 11, 0.1); }
+        
+        /* تأثير "اللمعان" على الكارت */
+        .card::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(145deg, transparent, rgba(184, 134, 11, 0.05), transparent);
+            transform: rotate(45deg);
+            transition: 0.5s;
+            opacity: 0;
+        }
+        .card:hover::after { opacity: 1; left: 50%; top: 50%; }
+
+        /* صورة المنتج الدائرية المتفردة */
         .card img { 
-            width: 130px; height: 130px; border-radius: 50%; 
-            object-fit: cover; border: 2px solid var(--gold); margin-bottom: 10px; 
+            width: 140px; height: 140px; border-radius: 50%; 
+            object-fit: cover; 
+            border: 3px solid rgba(184, 134, 11, 0.2); 
+            margin-bottom: 15px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+            transition: 0.5s;
         }
+        .card:hover img { border-color: var(--deep-gold); transform: scale(1.1); }
 
-        .card-title { color: var(--gold); font-size: 0.85rem; font-weight: bold; margin-bottom: 10px; }
+        /* اسم المنتج الملكي بالإنجليزية (براند) */
+        .card-title { 
+            color: var(--deep-gold); 
+            font-size: 0.9rem; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
         
+        /* زرار "أعجبني" الفخم */
         .like-btn { 
-            background: none; border: 1px solid var(--gold); color: var(--gold); 
-            padding: 6px 15px; border-radius: 20px; cursor: pointer; font-size: 0.8rem;
+            background: none; 
+            border: 1px solid rgba(184, 134, 11, 0.3); 
+            color: var(--deep-gold); 
+            padding: 8px 20px; 
+            border-radius: 20px; 
+            cursor: pointer; 
+            font-size: 0.85rem; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
         }
-        .like-btn.active { background: var(--gold); color: black; }
+        .like-btn:hover { background: var(--deep-gold); color: black; border-color: var(--deep-gold); }
+        .like-btn.active { background: var(--deep-gold); color: black; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -62,8 +172,8 @@
     <div class="stat-bar">إجمالي تفاعل الجمهور: <span id="like-count">0</span> إعجاب</div>
 
     <div class="header">
-        <h1>إمبراطورية المايسترو</h1>
-        <p style="color: #666; font-size: 0.8rem;">فخامة السلطان.. دقة الاختيار</p>
+        <h1>Maestro</h1>
+        <p class="signature-monogram">ULTRA PREMIUM DESTINATION | EMPIRE INVESTMENTS</p>
     </div>
 
     <div class="tab-bar">
@@ -78,6 +188,50 @@
 
     <script>
         let totalLikes = 0;
+        
+        // بيانات المنتجات الحقيقية والفخمة (للتسويق)
         const data = {
-            g: { label: 'نظارة ملكية', imgs: ['https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=300','https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=300','https://images.unsplash.com/photo-1509695507497-903c140c43b0?w=300','https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=300','https://images.unsplash.com/photo-1577803645773-f96470509666?w=300','https://images.unsplash.com/photo-1508296695146-257a814070b4?w=300','https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=300','https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=300','https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=300','https://images.unsplash.com/photo-1608508644127-ba99d7732fee?w=300'] },
-            p: { label: 'عطر فاخر', imgs: ['
+            g: { label: 'نظارة ملكية', imgs: ['https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=300','https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=300','https://images.unsplash.com/photo-1509695507497-903c140c43b0?w=300','https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=300','https://images.unsplash.com/photo-1577803645773-f96470509666?w=300','https://images.unsplash.com/photo-1508296695146-257a814070b4?w=300','https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=300','https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=300','https://images.unsplash.com/photo-1608508644127-ba99d7732fee?w=300','https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=300'] },
+            p: { label: 'عطر فاخر', imgs: ['https://images.unsplash.com/photo-1541643600914-78b084683601?w=300','https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=300','https://images.unsplash.com/photo-1594035910387-fea47794261f?w=300','https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=300','https://images.unsplash.com/photo-1616948055600-a19116c299b2?w=300','https://images.unsplash.com/photo-1583467875263-d50fed34a43b?w=300','https://images.unsplash.com/photo-1594035910387-fea47794261f?w=300','https://images.unsplash.com/photo-1557170334-a7c3c437782d?w=300','https://images.unsplash.com/photo-1595425284459-3fd474bfc1bd?w=300','https://images.unsplash.com/photo-1615783317770-4d8e966ae85a?w=300'] },
+            w: { label: 'ساعة النخبة', imgs: ['https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=300','https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=300','https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=300','https://images.unsplash.com/photo-1508057198894-247b23fe5ade?w=300','https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=300','https://images.unsplash.com/photo-1509048196583-68079c588998?w=300','https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?w=300','https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=300','https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=300','https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?w=300'] }
+        };
+
+        // بناء الممر الملكي (المنتجات) تلقائياً
+        function build(type) {
+            const grid = document.getElementById(type + '-grid');
+            data[type].imgs.forEach((img, i) => {
+                grid.innerHTML += `
+                    <div class="card">
+                        <img src="${img}" alt="${data[type].label}">
+                        <div class="card-title">${data[type].label} ${i+1}</div>
+                        <button class="like-btn" onclick="hitLike(this)">❤️ أعجبني</button>
+                    </div>`;
+            });
+        }
+
+        // تشغيل البناء لجميع الأقسام
+        ['g','p','w'].forEach(build);
+
+        // وظيفة الإعجابات (للتسويق)
+        function hitLike(btn) {
+            btn.classList.toggle('active');
+            if(btn.classList.contains('active')) {
+                totalLikes++;
+                btn.innerHTML = "✅ تم";
+            } else {
+                totalLikes--;
+                btn.innerHTML = "❤️ أعجبني";
+            }
+            document.getElementById('like-count').innerText = totalLikes;
+        }
+
+        // وظيفة التنقل بين الأقسام
+        function openTab(id) {
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.tab-link').forEach(t => t.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
