@@ -1,89 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAESTRO EMPIRE</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel&display=swap" rel="stylesheet">
+    <title>واجهة الشركة - المسودة الأولى</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --silver: #e0e0e0;
-            --dark-silver: #888888;
-            --black-bg: #050505;
-        }
-
-        /* 🌌 1. الخلفية بمحفظتها (الخلفية السينمائية) */
-        body { 
-            background: radial-gradient(circle, #1a1a1a 0%, var(--black-bg) 70%);
-            margin: 0; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh; 
-            overflow: hidden;
-            color: var(--silver);
-        }
-
-        .container { text-align: center; }
-
-        /* 🔘 2. الختم (الدائرة والحروف المنفصلة) */
-        .seal-area {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-
-        .label-text {
-            font-family: 'Cinzel', serif;
-            font-size: 0.8rem;
-            letter-spacing: 12px; /* حروف منفصلة فخمة */
-            text-transform: uppercase;
-            color: var(--dark-silver);
-        }
-
-        .circle-border {
-            width: 200px;
-            height: 200px;
-            border: 1px solid var(--silver); /* خط واحد رفيع وشيك */
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 20px 0;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-        }
-
-        .main-h {
-            font-family: 'Great Vibes', cursive;
-            font-size: 8rem;
+        /* 1. إعدادات الصفحة الأساسية (الخلفية السوداء الفخمة) */
+        body {
+            background: radial-gradient(circle, #1a1a1a 0%, #050505 100%); /* خلفية سوداء بتدرج خفيف */
             margin: 0;
-            /* تأثير البروز 2 مللي */
-            text-shadow: 2px 2px 0px #333, 4px 4px 10px rgba(0,0,0,0.8);
+            padding: 0;
+            color: #b8860b; /* اللون الذهبي الملكي للنصوص */
+            font-family: 'Cinzel', serif; /* الخط الملكي الأساسي */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            /* الغاء التوسيط ليكون التصميم في الركن */
+            align-items: flex-start; 
         }
 
-        /* 🖋️ 3. اسم المايسترو */
-        .brand-name {
-            font-family: 'Great Vibes', cursive;
-            font-size: 4rem;
-            margin-top: 10px;
-            color: var(--silver);
+        /* 2. حاوية "كتلة المعلومات" في أقصى الشمال */
+        .brand-corner {
+            position: absolute; /* تثبيت في مكان محدد */
+            top: 20px; /* مسافة بسيطة من الأعلى */
+            left: 20px; /* مسافة بسيطة من الشمال */
+            display: flex;
+            flex-direction: column; /* العناصر فوق بعضها */
+            align-items: flex-start; /* محاذاة للشمال */
+            border-bottom: 1px solid #b8860b; /* السطر الرفيع جداً تحت الكتلة كلها */
+            padding-bottom: 5px; /* مسافة بسيطة فوق السطر */
         }
+
+        /* 3. تنسيق اسم الشركة (السطر الأول) */
+        .company-name {
+            font-family: 'Great+Vibes', cursive; /* خط التوقيع الفاخر */
+            font-size: 24px; /* مقاس صغير وملموم */
+            font-weight: bold;
+            margin-bottom: 2px; /* مسافة صغيرة جداً تحت الاسم */
+        }
+
+        /* 4. تنسيق الماركة والسنة (السطر الثاني) */
+        .brand-details {
+            font-size: 14px; /* أصغر وأرفع */
+            letter-spacing: 1px; /* مسافة بين الحروف للشياكة */
+            color: #d4af37; /* ذهبي أفتح قليلاً */
+        }
+
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="label-text">E S T A B L I S H E D</div>
-
-        <div class="seal-area">
-            <div class="circle-border">
-                <h1 class="main-h">H</h1>
-            </div>
-        </div>
-
-        <div class="label-text">2 0 2 6</div>
-
-        <div class="brand-name">Maestro</div>
+    <div class="brand-corner">
+        <div class="company-name">اسم الشركة هنا</div>
+        
+        <div class="brand-details">H • EST. 2026</div>
     </div>
 
 </body>
