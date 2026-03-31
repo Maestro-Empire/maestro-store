@@ -5,27 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Maestro | المايسترو</title>
     <style>
-        /* التنسيق الملكي للمايسترو */
         body {
-            background-color: #000; /* أسود فخم */
-            color: #d4af37; /* ذهبي */
-            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: #d4af37;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-
-        /* الهيدر واللوجو */
         .header {
             text-align: center;
-            padding: 80px 20px;
+            padding: 100px 20px;
             position: relative;
             width: 100%;
         }
         .bg-h {
-            font-size: 200px;
-            color: #111; /* حرف H خفي ورا الكلام */
+            font-size: 250px;
+            color: #111;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -34,45 +31,43 @@
             font-weight: bold;
         }
         .brand-name {
-            font-size: 50px;
-            letter-spacing: 10px;
+            font-size: clamp(30px, 8vw, 60px);
+            letter-spacing: 12px;
             margin: 0;
-            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
         }
-
-        /* شبكة عرض الـ 10 نظارات */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
             padding: 40px;
             width: 90%;
-            max-width: 1200px;
+            max-width: 1300px;
         }
-
-        /* كارت النظارة */
         .card {
             background: #050505;
             border: 1px solid #1a1a1a;
-            padding: 15px;
-            border-radius: 12px;
+            padding: 20px;
+            border-radius: 15px;
             text-align: center;
-            transition: 0.4s;
+            transition: all 0.4s ease;
         }
         .card:hover {
             border-color: #d4af37;
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
         }
         .card img {
             width: 100%;
             height: auto;
-            border-radius: 8px;
-            border-bottom: 2px solid #d4af37;
-            margin-bottom: 15px;
+            border-radius: 10px;
+            border-bottom: 3px solid #d4af37;
+            margin-bottom: 20px;
+            background-color: #111;
         }
         .card h3 {
-            font-size: 18px;
-            margin: 10px 0;
+            font-size: 20px;
+            letter-spacing: 2px;
         }
     </style>
 </head>
