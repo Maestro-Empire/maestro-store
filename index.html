@@ -3,11 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Maestro | Official Lookbook</title>
+    <title>The Maestro | 10 Models</title>
     <style>
         body { background-color: #000; color: #d4af37; font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; flex-direction: column; align-items: center; }
         .header { text-align: center; padding: 60px 20px; position: relative; width: 100%; }
-        .bg-h { font-size: 250px; color: #0a0a0a; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: -1; font-weight: 900; }
-        .brand-name { font-size: 50px; letter-spacing: 10px; margin: 0; font-weight: bold; }
-        .section-title { font-size: 24px; margin: 40px 0 20px; border-bottom: 2px solid #d4af37; padding-bottom: 10px; width: 80%; text-align: center; color: #fff; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 20px; width:
+        .bg-h { font-size: 200px; color: #0a0a0a; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: -1; font-weight: 900; }
+        .brand-name { font-size: 45px; letter-spacing: 12px; margin: 0; font-weight: bold; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 40px 20px; width: 95%; max-width: 1200px; }
+        .card { background: #050505; border: 1px solid #1a1a1a; padding: 15px; border-radius: 12px; text-align: center; transition: 0.4s; }
+        .card:hover { border-color: #d4af37; transform: translateY(-10px); }
+        .card img { width: 100%; height: 250px; object-fit: cover; border-radius: 8px; border-bottom: 3px solid #d4af37; margin-bottom: 15px; }
+        .p-info { color: #fff; font-size: 18px; font-weight: bold; margin-bottom: 5px; }
+        .p-desc { color: #888; font-size: 14px; margin-bottom: 15px; }
+        .heart { font-size: 24px; color: #333; cursor: pointer; transition: 0.3s; }
+        .heart:hover { color: #d4af37; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="bg-h">H</div>
+        <h1 class="brand-name">THE MAESTRO</h1>
+    </div>
+
+    <div class="grid" id="main-grid">
+        <script>
+            const items = [
+                {src: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400", name: "نظارة كلاسيك M1", desc: "تصميم إيطالي فاخر"},
+                {src: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400", name: "ساعة رويال W1", desc: "ماكينة سويسرية أوتوماتيك"},
+                {src: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=400", name: "عطر ليجند P1", desc: "ثبات 48 ساعة نوتات فرنسية"},
+                {src: "https://images.unsplash.com/photo-1511499767390-a73c99a65f24?w=400", name: "نظارة مودرن M2", desc: "عدسات بولارايزد حماية UV400"},
+                {src: "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=400", name: "ساعة سبورت W2", desc: "ضد الخدش والماء"},
+                {src: "https://images.unsplash.com/photo-1594035910387-fea47794261f?w=400", name: "عطر في آي بي P2", desc: "مزيج العود والمسك الملكي"},
+                {src: "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=400", name: "نظارة شمس M3", desc: "إطار تيتانيوم خفيف جداً"},
+                {src: "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=400", name: "ساعة كاجوال W3", desc: "سير جلد طبيعي فاخر"},
+                {src: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=400", name: "عطر أورا P3", desc: "تركيز عالي لمحبي التميز"},
+                {src: "https://images.unsplash.com/photo-1577803645773-f96470509666?w=400", name: "نظارة طيار M4", desc: "ستايل عالمي فريد"}
+            ];
+
+            const grid = document.getElementById('main-grid');
+            items.forEach(item => {
+                grid.innerHTML += `
+                <div class="card">
+                    <img src="${item.src}">
+                    <div class="p-info">${item.name}</div>
+                    <div class="p-desc">${item.desc}</div>
+                    <div class="heart">❤</div>
+                </div>`;
+            });
+        </script>
+    </div>
+
+</body>
+</html>
