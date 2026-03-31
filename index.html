@@ -3,17 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Maestro | المايسترو</title>
+    <title>The Maestro | Official Lookbook</title>
     <style>
-        body { background-color: #000; color: #d4af37; font-family: sans-serif; margin: 0; text-align: center; }
-        .header { padding: 60px 20px; position: relative; overflow: hidden; }
-        .bg-h { font-size: 200px; color: #111; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: -1; font-weight: bold; }
-        .brand-name { font-size: 45px; letter-spacing: 8px; margin: 0; text-transform: uppercase; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 30px; }
-        .card { background: #050505; border: 1px solid #1a1a1a; padding: 15px; border-radius: 12px; transition: 0.3s; }
-        .card:hover { border-color: #d4af37; transform: translateY(-5px); }
-        .card img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; border-bottom: 3px solid #d4af37; margin-bottom: 15px; }
-        h3 { font-size: 18px; letter-spacing: 1px; }
+        body { background-color: #000; color: #d4af37; font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; display: flex; flex-direction: column; align-items: center; }
+        .header { text-align: center; padding: 100px 20px; position: relative; width: 100%; overflow: hidden; }
+        .bg-h { font-size: clamp(200px, 45vw, 350px); color: #0a0a0a; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: -1; font-weight: 900; }
+        .brand-name { font-size: clamp(30px, 10vw, 65px); letter-spacing: 15px; margin: 0; font-weight: bold; text-shadow: 0 0 20px rgba(212,175,55,0.3); }
+        .section-title { font-size: 26px; margin: 60px 0 30px; border-bottom: 1px solid #d4af37; padding-bottom: 15px; width: 80%; text-align: center; color: #fff; letter-spacing: 5px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; padding: 20px; width: 90%; max-width: 1400px; }
+        .card { background: linear-gradient(145deg, #0a0a0a, #050505); border: 1px solid #1a1a1a; padding: 20px; border-radius: 15px; text-align: center; transition: 0.5s; }
+        .card:hover { border-color: #d4af37; transform: translateY(-10px); box-shadow: 0 10px 30px rgba(212,175,55,0.15); }
+        .card img { width: 100%; height: 260px; object-fit: cover; border-radius: 10px; border-bottom: 3px solid #d4af37; margin-bottom: 20px; }
+        .product-name { font-size: 20px; color: #fff; margin: 10px 0; font-weight: bold; letter-spacing: 1px; }
+        .specs { color: #888; font-size: 14px; line-height: 1.8; margin-bottom: 20px; text-align: right; padding: 0 10px; }
+        .spec-item { display: block; margin-bottom: 5px; }
+        .spec-item b { color: #d4af37; }
+        .interaction { display: flex; justify-content: center; align-items: center; gap: 10px; padding-top: 15px; border-top: 1px solid #111; }
+        .heart { font-size: 24px; color: #333; cursor: pointer; transition: 0.3s; }
+        .heart:hover { color: #d4af37; transform: scale(1.2); }
     </style>
 </head>
 <body>
@@ -23,17 +30,61 @@
         <h1 class="brand-name">THE MAESTRO</h1>
     </div>
 
+    <h2 class="section-title">النظارات | EYEWEAR 2026</h2>
     <div class="grid">
-        <div class="card"><img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500" alt="1"><h3>موديل المايسترو 1</h3></div>
-        <div class="card"><img src="https://images.unsplash.com/photo-1511499767390-a73c99a65f24?w=500" alt="2"><h3>موديل المايسترو 2</h3></div>
-        <div class="card"><img src="https://images.unsplash.com/photo-1577803645773-f96470509666?w=500" alt="3"><h3>موديل المايسترو 3</h3></div>
-        <div class="card"><img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=500" alt="4"><h3>موديل المايسترو 4</h3></div>
-        <div class="card"><img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?w=500" alt="5"><h3>موديل المايسترو 5</h3></div>
-        <div class="card"><img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=500" alt="6"><h3>موديل المايسترو 6</h3></div>
-        <div class="card"><img src="https://images.unsplash.com/photo-1625591339762-430a3047d6ca?w=500" alt="7"><h3>موديل المايسترو 7</h3></div>
-        <div class="card"><img src="https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=500" alt="8"><h3>موديل المايسترو 8</h3></div>
-        <div class="card"><img src="https://images.unsplash.com/photo-1509695507497-903c140c43b0?w=500" alt="9"><h3>موديل المايسترو 9</h3></div>
-        <div class="card"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=500" alt="10"><h3>موديل المايسترو 10</h3></div>
+        <script>
+            for(let i=1; i<=10; i++) {
+                document.write(`
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500" alt="eyewear">
+                    <div class="product-name">MAESTRO VISION - M${i}</div>
+                    <div class="specs">
+                        <span class="spec-item"><b>العدسات:</b> Polarized UV400 محمية تماماً</span>
+                        <span class="spec-item"><b>الإطار:</b> تيتانيوم مرن خفيف الوزن</span>
+                        <span class="spec-item"><b>التصميم:</b> إيطالي عصري لمحبي التميز</span>
+                    </div>
+                    <div class="interaction"><span class="heart">❤</span> <small>إعجاب بالموديل</small></div>
+                </div>`);
+            }
+        </script>
+    </div>
+
+    <h2 class="section-title">الساعات | TIMEPIECES</h2>
+    <div class="grid">
+        <script>
+            for(let i=1; i<=10; i++) {
+                document.write(`
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=500" alt="watch">
+                    <div class="product-name">ROYAL MASTER - W${i}</div>
+                    <div class="specs">
+                        <span class="spec-item"><b>الماكينة:</b> Automatic سويسرية دقيقة</span>
+                        <span class="spec-item"><b>الزجاج:</b> Sapphire ضد الخدش والكسر</span>
+                        <span class="spec-item"><b>المقاومة:</b> ضد الماء حتى عمق 50 متر</span>
+                    </div>
+                    <div class="interaction"><span class="heart">❤</span> <small>إعجاب بالموديل</small></div>
+                </div>`);
+            }
+        </script>
+    </div>
+
+    <h2 class="section-title">العطور | LUXURY SCENTS</h2>
+    <div class="grid">
+        <script>
+            for(let i=1; i<=10; i++) {
+                document.write(`
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=500" alt="perfume">
+                    <div class="product-name">GOLDEN AURA - P${i}</div>
+                    <div class="specs">
+                        <span class="spec-item"><b>الثبات:</b> تركيز Extrait de Parfum (48 ساعة)</span>
+                        <span class="spec-item"><b>النوتات:</b> مزيج ملكي من العود الكمبودي والزعفران</span>
+                        <span class="spec-item"><b>المنشأ:</b> زيوت فرنسية خام نادرة</span>
+                    </div>
+                    <div class="interaction"><span class="heart">❤</span> <small>إعجاب بالموديل</small></div>
+                </div>`);
+            }
+        </script>
     </div>
 
 </body>
