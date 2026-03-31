@@ -6,11 +6,10 @@
     <title>المايسترو</title>
     <style>
         body { background-color: #0d0d0d; color: #e0e0e0; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
-        h1 { font-size: 32px; margin-bottom: 30px; color: #d4af37; border-bottom: 3px solid #d4af37; padding-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); letter-spacing: 2px; }
-        .container { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
-        .card { background: #1a1a1a; border-radius: 12px; padding: 25px; width: 220px; text-align: center; border-bottom: 5px solid #007bff; box-shadow: 0 8px 16px rgba(0,0,0,0.6); transition: 0.3s; }
-        .card:hover { transform: scale(1.05); }
-        .name { font-size: 22px; font-weight: bold; margin-bottom: 8px; color: #ffffff; }
+        h1 { font-size: 32px; margin-bottom: 30px; color: #d4af37; border-bottom: 3px solid #d4af37; padding-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .container { display: flex; flex-direction: column; gap: 20px; align-items: center; }
+        .card { background: #1a1a1a; border-radius: 12px; padding: 25px; width: 280px; text-align: center; border-bottom: 5px solid #007bff; box-shadow: 0 8px 16px rgba(0,0,0,0.6); }
+        .name { font-size: 24px; font-weight: bold; color: #ffffff; }
         .symbol { font-size: 14px; color: #777; margin-bottom: 15px; }
         .price { font-size: 28px; color: #00ff41; font-weight: bold; }
         .loading { font-size: 18px; color: #00ff41; animation: blink 1s infinite; }
@@ -25,35 +24,33 @@
         <div class="card">
             <div class="name">فوري</div>
             <div class="symbol">FWRY.CA</div>
-            <div id="FWRY" class="price loading">...جاري التحميل</div>
+            <div id="FWRY" class="price loading">جاري جلب السعر...</div>
         </div>
-
         <div class="card">
             <div class="name">كوبر</div>
             <div class="symbol">COPR.CA</div>
-            <div id="COPR" class="price loading">...جاري التحميل</div>
+            <div id="COPR" class="price loading">جاري جلب السعر...</div>
         </div>
-
         <div class="card">
             <div class="name">بيلتون</div>
             <div class="symbol">BTFH.CA</div>
-            <div id="BTFH" class="price loading">...جاري التحميل</div>
+            <div id="BTFH" class="price loading">جاري جلب السعر...</div>
         </div>
     </div>
 
     <script>
-        // المفتاح السحري بتاعك
-        const apiKey = "37774136952d43109da33116817290b5"; 
-        const stocks = "FWRY,COPR,BTFH";
+        // المفتاح اللي أنت بعته يا مايسترو
+        const apiKey = "3adc6418870349b1967765352590456b"; 
+        const stocks = "FWRY.CA,COPR.CA,BTFH.CA";
 
         async function fetchPrices() {
             try {
                 const response = await fetch(`https://api.twelvedata.com/price?symbol=${stocks}&apikey=${apiKey}`);
                 const data = await response.json();
 
-                if(data.FWRY) updateUI("FWRY", data.FWRY.price);
-                if(data.COPR) updateUI("COPR", data.COPR.price);
-                if(data.BTFH) updateUI("BTFH", data.BTFH.price);
+                if(data["FWRY.CA"]) updateUI("FWRY", data["FWRY.CA"].price);
+                if(data["COPR.CA"]) updateUI("COPR", data["COPR.CA"].price);
+                if(data["BTFH.CA"]) updateUI("BTFH", data["BTFH.CA"].price);
                 
             } catch (error) {
                 console.log("خطأ في الاتصال");
@@ -63,7 +60,7 @@
         function updateUI(id, price) {
             const el = document.getElementById(id);
             if(el && price) {
-                el.innerText = parseFloat(price).toFixed(2) + " EGP";
+                el.innerText = parseFloat(price).toFixed(2) + " ج.م";
                 el.classList.remove('loading');
             }
         }
