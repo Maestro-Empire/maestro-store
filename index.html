@@ -3,26 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE MAESTRO - LIVE RADAR</title>
+    <title>THE MAESTRO RADAR</title>
     <style>
-        /* القاعدة الأساسية: التصميم الملكي الأسود والذهبي */
-        body { background-color: #0b0904; color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 15px; text-align: center; }
+        body { background-color: #0b0904; color: #ffffff; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 15px; text-align: center; }
         .header { border-bottom: 2px solid #856404; padding-bottom: 15px; margin-bottom: 10px; }
         .title { color: #d4af37; font-size: 28px; font-weight: bold; text-shadow: 0 0 10px rgba(212,175,55,0.4); }
         .status-bar { color: #00ff00; font-size: 11px; border: 1px solid #333; padding: 6px; display: inline-block; border-radius: 5px; margin: 10px 0; background: rgba(0,255,0,0.05); }
-        
-        .section-gold { background: linear-gradient(90deg, #856404, #d4af37); color: #000; padding: 12px; border-radius: 6px; font-weight: bold; margin: 15px 0; font-size: 18px; box-shadow: 0 4px 10px rgba(212, 175, 55, 0.2); }
-        .section-main { background: #1a1a1a; color: #d4af37; padding: 10px; border-radius: 6px; font-weight: bold; margin-top: 20px; border: 1px solid #856404; font-size: 16px; }
-        
-        /* كروت الأسهم (الخانات اللي في صورتك) */
+        .section-gold { background: linear-gradient(90deg, #856404, #d4af37); color: #000; padding: 12px; border-radius: 6px; font-weight: bold; margin: 15px 0; font-size: 18px; }
+        .section-main { background: #1a1a1a; color: #d4af37; padding: 10px; border-radius: 6px; font-weight: bold; margin-top: 20px; border: 1px solid #856404; }
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 10px 0; }
-        .card { background: #161616; padding: 15px; border-radius: 10px; border: 1px solid #222; box-shadow: inset 0 0 5px #000; }
+        .card { background: #161616; padding: 15px; border-radius: 10px; border: 1px solid #222; box-shadow: inset 0 0 5px #000; transition: 0.3s; }
         .name { font-size: 14px; color: #bbb; margin-bottom: 6px; }
-        .price { font-size: 19px; font-weight: bold; font-family: 'Courier New', monospace; color: #888; }
-        .up { color: #00ff00 !important; text-shadow: 0 0 5px rgba(0,255,0,0.3); } 
-        .down { color: #ff4d4d !important; text-shadow: 0 0 5px rgba(255,77,77,0.3); }
-        
-        footer { margin-top: 40px; font-size: 12px; color: #856404; border-top: 1px solid #333; padding-top: 20px; opacity: 0.8; }
+        .price { font-size: 19px; font-weight: bold; font-family: 'Courier New', monospace; color: #d4af37; }
+        .up { color: #00ff00 !important; } .down { color: #ff4d4d !important; }
+        footer { margin-top: 40px; font-size: 11px; color: #856404; border-top: 1px solid #333; padding-top: 20px; }
     </style>
 </head>
 <body>
@@ -40,12 +34,10 @@
 
     <footer>
         maestro-empire.github.io © 2026<br>
-        📡 نظام المايسترو المشفر لسحب الأسعار تلقائياً<br>
-        تحديث كل 60 ثانية من قلب البورصة
+        📡 نظام المايسترو لسحب الأسعار تلقائياً • تحديث كل 60 ثانية
     </footer>
 
     <script>
-        // الرموز والشركات (تأكد من .CA للبورصة المصرية)
         const goldStocks = [
             {id: 'FWRY', n: 'فوري', s: 'FWRY.CA'},
             {id: 'COPR', n: 'كوبر للاستثمار', s: 'COPR.CA'},
@@ -60,12 +52,13 @@
             {id: 'MFPC', n: 'موبكو', s: 'MFPC.CA'},
             {id: 'SWDY', n: 'السويدي إليكتريك', s: 'SWDY.CA'},
             {id: 'ESRS', n: 'حديد عز', s: 'ESRS.CA'},
+            {id: 'EFIH', n: 'إي فاينانس', s: 'EFIH.CA'},
             {id: 'AMOC', n: 'أموك', s: 'AMOC.CA'},
             {id: 'ETEL', n: 'المصرية للاتصالات', s: 'ETEL.CA'},
+            {id: 'JUFO', n: 'جهينة', s: 'JUFO.CA'},
             {id: 'PHDC', n: 'بالم هيلز', s: 'PHDC.CA'}
         ];
 
-        // بناء المربعات فوراً
         function buildInterface() {
             const gGrid = document.getElementById('gold-grid');
             const mGrid = document.getElementById('main-grid');
@@ -74,20 +67,17 @@
             mainStocks.forEach(s => mGrid.innerHTML += `<div class="card"><div class="name">${s.n}</div><div id="${s.id}" class="price">--.--</div></div>`);
         }
 
-        async function fetchLivePrices() {
+        async function fetchPrices() {
             const status = document.getElementById('sync-status');
-            status.innerText = "● تحديث تلقائي جاري...";
-            status.style.color = "#d4af37";
-            
-            // الوسيط الموثوق لفك الحماية وتمرير الأسعار
+            status.innerText = "● تحديث جاري...";
+            // الوسيط العالمي لفك الحماية وتفعيل الأسعار
             const proxy = "https://api.allorigins.win/get?url=";
-            const allStocks = [...goldStocks, ...mainStocks];
             
-            for (let stock of allStocks) {
+            for (let stock of [...goldStocks, ...mainStocks]) {
                 try {
-                    const targetUrl = encodeURIComponent(`https://query1.finance.yahoo.com/v7/finance/quote?symbols=${stock.s}`);
-                    const response = await fetch(`${proxy}${targetUrl}`);
-                    const json = await response.json();
+                    const target = encodeURIComponent(`https://query1.finance.yahoo.com/v7/finance/quote?symbols=${stock.s}`);
+                    const res = await fetch(`${proxy}${target}`);
+                    const json = await res.json();
                     const data = JSON.parse(json.contents);
                     const info = data.quoteResponse.result[0];
                     
@@ -95,23 +85,20 @@
                         const price = info.regularMarketPrice.toFixed(2);
                         const change = info.regularMarketChangePercent.toFixed(2);
                         const el = document.getElementById(stock.id);
-                        
                         if (el) {
                             el.className = change >= 0 ? "price up" : "price down";
                             el.innerHTML = `${price} <small style="font-size:11px">${change >= 0 ? '▲' : '▼'} ${change}%</small>`;
                         }
                     }
-                } catch (e) {
-                    console.log("تحميل " + stock.n);
-                }
+                } catch (e) { console.log(stock.n + "..."); }
             }
             status.innerText = "● رادار المايسترو: متصل وآمن";
             status.style.color = "#00ff00";
         }
 
         buildInterface();
-        fetchLivePrices();
-        setInterval(fetchLivePrices, 60000);
+        fetchPrices();
+        setInterval(fetchPrices, 60000);
     </script>
 </body>
 </html>
