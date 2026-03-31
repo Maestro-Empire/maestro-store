@@ -3,165 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE MAESTRO | رادار الاستثمار الذكي</title>
+    <title>THE MAESTRO - رادار الأسعار الحية</title>
     <style>
-        :root { --gold: #d4af37; --dark-gold: #856a1b; --dark: #020202; --green: #00ff00; --card-bg: #080808; }
-        body { background: var(--dark); color: var(--gold); font-family: 'Segoe UI', sans-serif; margin: 0; padding-bottom: 120px; overflow-x: hidden; }
-        
-        /* شريط الحالة العلوي الاحترافي */
-        .top-nav { background: rgba(0,0,0,0.95); border-bottom: 1px solid var(--gold); padding: 12px 20px; display: flex; justify-content: space-between; font-size: 11px; position: sticky; top:0; z-index:9999; backdrop-filter: blur(10px); }
-        .live-status { display: flex; align-items: center; gap: 8px; color: var(--green); font-weight: bold; }
-        .dot { width: 7px; height: 7px; background: var(--green); border-radius: 50%; animation: pulse 1.5s infinite; }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
-
-        header { padding: 40px 20px; text-align: center; }
-        h1 { font-size: clamp(35px, 10vw, 60px); letter-spacing: 8px; margin: 0; text-shadow: 0 0 20px rgba(212,175,55,0.2); }
-        .subtitle { color: #666; letter-spacing: 2px; font-size: 14px; margin-top: 10px; }
-
-        /* البحث الذكي */
-        .search-wrap { max-width: 900px; margin: 10px auto 30px auto; text-align: center; }
-        #stockSearch { width: 85%; padding: 15px; border-radius: 50px; background: #111; border: 1px solid var(--gold); color: #fff; text-align: center; font-size: 16px; outline: none; }
-
-        /* تنسيق الجداول (لوحات المايسترو) */
-        .market-board { max-width: 900px; margin: 20px auto; background: var(--card-bg); border: 1px solid #1a1a1a; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .board-header { background: #111; padding: 15px 20px; border-bottom: 1px solid var(--gold); display: flex; justify-content: space-between; font-weight: bold; font-size: 14px; }
-        .stock-row { display: flex; justify-content: space-between; padding: 15px 20px; border-bottom: 1px solid #111; transition: 0.3s; align-items: center; }
-        .stock-row:hover { background: #111; }
-        .stock-row span:last-child { font-weight: bold; color: #fff; font-size: 18px; }
-        .up { color: var(--green) !important; text-shadow: 0 0 10px rgba(0,255,0,0.2); }
-
-        /* الشريط السفلي المعدل (لون ذهبي داكن + سرعة هادئة جداً) */
-        .ticker-footer { position: fixed; bottom: 0; width: 100%; background: var(--dark-gold); color: #fff; padding: 15px 0; font-weight: 900; overflow: hidden; z-index: 10000; border-top: 2px solid var(--gold); box-shadow: 0 -5px 20px rgba(0,0,0,0.8); }
-        .ticker-move { display: inline-block; white-space: nowrap; animation: slide 120s linear infinite; font-size: 18px; }
-        @keyframes slide { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
-        .ticker-move b { margin-right: 60px; padding-left: 30px; border-left: 2px solid rgba(255,255,255,0.2); }
-
-        /* زر المشاركة */
-        .btn-share { background: #fff; color: #000; border: none; padding: 15px 40px; font-weight: bold; border-radius: 50px; cursor: pointer; margin: 20px 0; transition: 0.3s; display: inline-block; }
-        .btn-share:hover { background: var(--gold); transform: scale(1.05); }
+        body { background-color: #0b0904; color: #fff; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 10px; text-align: center; }
+        .header { border-bottom: 2px solid #856404; padding: 15px; }
+        .title { color: #d4af37; font-size: 26px; font-weight: bold; }
+        .status-bar { color: #00ff00; font-size: 11px; border: 1px solid #333; padding: 5px; display: inline-block; border-radius: 5px; margin: 10px 0; }
+        .section-gold { background: linear-gradient(90deg, #856404, #d4af37); color: #000; padding: 10px; border-radius: 5px; font-weight: bold; margin: 15px 0; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 5px; }
+        .card { background: #161616; padding: 12px; border-radius: 8px; border: 1px solid #222; }
+        .name { font-size: 13px; color: #aaa; margin-bottom: 4px; }
+        .price { font-size: 17px; font-weight: bold; font-family: 'Courier New', monospace; }
+        .up { color: #00ff00; } .down { color: #ff4d4d; }
+        footer { margin-top: 30px; font-size: 11px; color: #856404; border-top: 1px solid #333; padding: 15px; }
     </style>
 </head>
 <body>
 
-    <div class="top-nav">
-        <div class="live-status"><div class="dot"></div> VPN ACTIVE: <span id="ping">24ms</span></div>
-        <div style="color: #fff;"><span style="color: var(--green);">●</span> ENCRYPTED CONNECTION</div>
-        <div id="clock">00:00:00</div>
+    <div class="header">
+        <div class="title">THE MAESTRO RADAR</div>
+        <div class="status-bar" id="sync-status">● جاري فحص الأسعار الحية...</div>
     </div>
 
-    <header>
-        <h1>THE MAESTRO</h1>
-        <p class="subtitle">إدارة تداول الأسهم المصرية والعالمية</p>
-    </header>
-
-    <div class="search-wrap">
-        <input type="text" id="stockSearch" placeholder="🔍 ابحث عن سهم أو صندوق (تيتو، T70، طلعت...)" onkeyup="filterStocks()">
-    </div>
-
-    <div class="market-board" style="border-color: var(--gold); background: #0c0c0c;">
-        <div class="board-header" style="background: var(--gold); color: #000;">
-            <span>🔥 فرص ذهبية وصناديق جديدة</span>
-            <span>السعر / الحالة ⭐</span>
+    <div class="section-gold">⭐ الـ 5 شركات الكبرى والجديدة</div>
+    <div class="grid" id="gold-grid">
         </div>
-        <div id="newStocksList">
-            </div>
-    </div>
 
-    <div class="market-board">
-        <div class="board-header">
-            <span>الشركة / الأداة المالية</span>
-            <span>السعر المباشر</span>
+    <div class="section-gold" style="background: #1a1a1a; color: #d4af37; border: 1px solid #856404;">📊 رادار الـ 50 شركة (EGX50)</div>
+    <div class="grid" id="main-grid">
         </div>
-        <div id="stocksList">
-            </div>
-    </div>
 
-    <div style="text-align:center; margin-bottom: 120px;">
-        <button class="btn-share" onclick="copyMyUrl()">📋 مشاركة رابط الرادار</button>
-    </div>
-
-    <div class="ticker-footer">
-        <div class="ticker-move" id="tickerContent"></div>
-    </div>
+    <footer>
+        maestro-empire.github.io © 2026<br>
+        📡 نظام سحب أسعار تلقائي - تحديث كل 60 ثانية
+    </footer>
 
     <script>
-        // بيانات الفرص الجديدة والاكتتابات
-        const newStocks = [
-            {n: "صندوق T70 للمؤشرات ⭐", p: "متاح الآن ▲"},
-            {n: "صندوق بلتون فضة (BFA) ⭐", p: "1.00 EGP"},
-            {n: "تيتو للاستثمار (TITO) ⭐", p: "1.25 ▲"},
-            {n: "تعليم لخدمات الإدارة (TALM)", p: "8.15"},
-            {n: "دايس للملابس (DSCW)", p: "1.45 ▲"},
-            {n: "القلعة (CCAP)", p: "2.90 ▲"}
+        // مصفوفة الـ 5 الكبار (بما فيهم فوري وكوبر والجدد)
+        const goldStocks = [
+            {id: 'FWRY', n: 'فوري', s: 'FWRY.CA'},
+            {id: 'COPR', n: 'كوبر للاستثمار', s: 'COPR.CA'},
+            {id: 'BTEL', n: 'بيلتون', s: 'BTEL.CA'},
+            {id: 'TMGH', n: 'طلعت مصطفى', s: 'TMGH.CA'},
+            {id: 'T70', n: 'صندوق T70', s: 'T70.CA'}
         ];
 
-        // بيانات الأسهم الأساسية (الـ 20 شركة)
-        const stocks = [
-            {n: "طلعت مصطفى (TMGH)", p: "35.50 ▲"},
-            {n: "التجاري الدولي (COMI)", p: "72.15"},
-            {n: "أبو قير للأسمدة (ABUK)", p: "65.20 ▲"},
-            {n: "فوري (FWRY)", p: "5.80"},
-            {n: "موبكو (MFPC)", p: "45.30 ▲"},
-            {n: "كوبر للاستثمار (COPR)", p: "0.44 ▲"},
-            {n: "إي فاينانس (EFIH)", p: "24.50"},
-            {n: "النساجون الشرقيون (ORWE)", p: "18.30 ▲"},
-            {n: "كيما (KIMA)", p: "12.40"},
-            {n: "ابن سينا فارما (ISPH)", p: "2.80"},
-            {n: "السويدي إليكتريك (SWDY)", p: "28.40"},
-            {n: "حديد عز (ESRS)", p: "62.00"},
-            {n: "بالم هيلز (PHDC)", p: "3.15"},
-            {n: "مدينة نصر (MNHD)", p: "3.90 ▲"},
-            {n: "مصر الجديدة (HELI)", p: "10.20"},
-            {n: "جهينة (JUFO)", p: "15.60"},
-            {n: "المصرية للاتصالات (ETEL)", p: "34.00"},
-            {n: "بيلتون (BTEL)", p: "3.50 ▲"},
-            {n: "أبوظبي الإسلامي (ADIB)", p: "38.00 ▲"},
-            {n: "سيدي كرير (SKPC)", p: "22.10"}
+        // مصفوفة الـ 50 شركة الأساسية (أمثلة لأهمها والباقي يضاف بنفس النمط)
+        const mainStocks = [
+            {id: 'COMI', n: 'التجاري الدولي', s: 'COMI.CA'},
+            {id: 'ABUK', n: 'أبو قير للأسمدة', s: 'ABUK.CA'},
+            {id: 'MFPC', n: 'موبكو', s: 'MFPC.CA'},
+            {id: 'SWDY', n: 'السويدي إليكتريك', s: 'SWDY.CA'},
+            {id: 'EFIH', n: 'إي فاينانس', s: 'EFIH.CA'},
+            {id: 'ESRS', n: 'حديد عز', s: 'ESRS.CA'},
+            {id: 'ORAS', n: 'أوراسكوم للإنشاء', s: 'ORAS.CA'},
+            {id: 'JUFO', n: 'جهينة', s: 'JUFO.CA'},
+            {id: 'ETEL', n: 'المصرية للاتصالات', s: 'ETEL.CA'},
+            {id: 'AMOC', n: 'أموك', s: 'AMOC.CA'}
+            // يمكنك إضافة باقي الـ 50 هنا بنفس الصيغة
         ];
 
-        function renderDisplay() {
-            let tickerHTML = "";
+        function createCards() {
+            const gGrid = document.getElementById('gold-grid');
+            const mGrid = document.getElementById('main-grid');
             
-            // ملء جدول الفرص الجديدة
-            let newHTML = "";
-            newStocks.forEach(s => {
-                let isUp = s.p.includes('▲');
-                newHTML += `<div class="stock-row" data-name="${s.n}"><span>${s.n}</span><span class="${isUp?'up':''}">${s.p}</span></div>`;
-                tickerHTML += `<b>${s.n}: ${s.p}</b>`;
-            });
-            document.getElementById('newStocksList').innerHTML = newHTML;
-
-            // ملء جدول الأسهم الأساسية
-            let boardHTML = "";
-            stocks.forEach(s => {
-                let isUp = s.p.includes('▲');
-                boardHTML += `<div class="stock-row" data-name="${s.n}"><span>${s.n}</span><span class="${isUp?'up':''}">${s.p}</span></div>`;
-                tickerHTML += `<b>${s.n}: ${s.p}</b>`;
-            });
-            document.getElementById('stocksList').innerHTML = boardHTML;
-
-            // تحديث الشريط السفلي
-            document.getElementById('tickerContent').innerHTML = tickerHTML + " -- رادار المايسترو: بيانات هادئة ومؤمنة بالكامل -- ";
+            goldStocks.forEach(s => gGrid.innerHTML += `<div class="card"><div class="name">${s.n}</div><div id="${s.id}" class="price">--.--</div></div>`);
+            mainStocks.forEach(s => mGrid.innerHTML += `<div class="card"><div class="name">${s.n}</div><div id="${s.id}" class="price">--.--</div></div>`);
         }
 
-        function filterStocks() {
-            let input = document.getElementById('stockSearch').value.toLowerCase();
-            let rows = document.querySelectorAll('.stock-row');
-            rows.forEach(row => {
-                let text = row.getAttribute('data-name').toLowerCase();
-                row.style.display = text.includes(input) ? "flex" : "none";
-            });
-        }
-
-        setInterval(() => { document.getElementById('clock').innerText = new Date().toLocaleTimeString('ar-EG'); }, 1000);
-        setInterval(() => { document.getElementById('ping').innerText = Math.floor(Math.random()*10+20) + "ms"; }, 3000);
-        
-        function copyMyUrl() {
-            navigator.clipboard.writeText(window.location.href);
-            alert("تم نسخ رابط المنصة بنجاح!");
-        }
-
-        renderDisplay();
-    </script>
-</body>
-</html>
+        async function fetchPrices() {
+            document.getElementById('sync-status').innerText = "● تحديث الأسعار الآن...";
+            document.getElementById('sync-status').style.color = "#d4af37";
+            
+            const all = [...goldStocks, ...mainStocks];
+            for (let stock of all) {
+                try {
+                    // السحب من ياهو فاينانس (المصدر المجاني الأوثق)
+                    const res = await fetch(`https://query1.finance.yahoo.com/v7/finance/quote?symbols=${stock.s}`);
+                    const data = await res.json();
+                    const info
