@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>رادار المايسترو مؤمن عاصم</title>
+    <title>المايسترو</title>
     <style>
-        body { background-color: #0d0d0d; color: #e0e0e0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
-        h1 { font-size: 24px; margin-bottom: 30px; display: flex; align-items: center; gap: 10px; color: #d4af37; }
-        .container { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; padding: 10px; }
-        .card { background: #1a1a1a; border-radius: 15px; padding: 25px; width: 220px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.5); border-bottom: 4px solid #0056b3; transition: transform 0.3s; }
-        .card:hover { transform: translateY(-5px); }
-        .name { font-size: 20px; font-weight: bold; margin-bottom: 5px; color: #ffffff; }
-        .symbol { font-size: 14px; color: #888; margin-bottom: 15px; letter-spacing: 1px; }
-        .price { font-size: 26px; color: #00ff41; font-weight: bold; }
-        .loading { font-size: 18px; color: #00ff41; animation: blink 1.5s infinite; }
-        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+        body { background-color: #0d0d0d; color: #e0e0e0; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
+        h1 { font-size: 32px; margin-bottom: 30px; color: #d4af37; border-bottom: 3px solid #d4af37; padding-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); letter-spacing: 2px; }
+        .container { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+        .card { background: #1a1a1a; border-radius: 12px; padding: 25px; width: 220px; text-align: center; border-bottom: 5px solid #007bff; box-shadow: 0 8px 16px rgba(0,0,0,0.6); transition: 0.3s; }
+        .card:hover { transform: scale(1.05); }
+        .name { font-size: 22px; font-weight: bold; margin-bottom: 8px; color: #ffffff; }
+        .symbol { font-size: 14px; color: #777; margin-bottom: 15px; }
+        .price { font-size: 28px; color: #00ff41; font-weight: bold; }
+        .loading { font-size: 18px; color: #00ff41; animation: blink 1s infinite; }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
     </style>
 </head>
 <body>
 
-    <h1>📊 رادار المايسترو مؤمن عاصم</h1>
+    <h1>📊 المايسترو</h1>
 
     <div class="container">
         <div class="card">
@@ -42,31 +42,34 @@
     </div>
 
     <script>
-        // المفتاح الخاص بك الذي استخرجناه من حسابك
-        const MY_API_KEY = "37774136952d43109da33116817290b5"; 
-        const symbols = "FWRY,COPR,BTFH";
+        // المفتاح السحري بتاعك
+        const apiKey = "37774136952d43109da33116817290b5"; 
+        const stocks = "FWRY,COPR,BTFH";
 
-        async function updateRadar() {
+        async function fetchPrices() {
             try {
-                const response = await fetch(`https://api.twelvedata.com/price?symbol=${symbols}&apikey=${MY_API_KEY}`);
+                const response = await fetch(`https://api.twelvedata.com/price?symbol=${stocks}&apikey=${apiKey}`);
                 const data = await response.json();
 
-                // تحديث العناصر بالأسعار الحقيقية
-                Object.keys(data).forEach(s => {
-                    const element = document.getElementById(s);
-                    if (element && data[s].price) {
-                        element.innerText = parseFloat(data[s].price).toFixed(2) + " EGP";
-                        element.classList.remove('loading');
-                    }
-                });
+                if(data.FWRY) updateUI("FWRY", data.FWRY.price);
+                if(data.COPR) updateUI("COPR", data.COPR.price);
+                if(data.BTFH) updateUI("BTFH", data.BTFH.price);
+                
             } catch (error) {
-                console.error("عذراً يا مايسترو، حدث خطأ في الاتصال:", error);
+                console.log("خطأ في الاتصال");
             }
         }
 
-        // تشغيل التحديث فوراً ثم كل دقيقة
-        updateRadar();
-        setInterval(updateRadar, 60000); 
+        function updateUI(id, price) {
+            const el = document.getElementById(id);
+            if(el && price) {
+                el.innerText = parseFloat(price).toFixed(2) + " EGP";
+                el.classList.remove('loading');
+            }
+        }
+
+        fetchPrices();
+        setInterval(fetchPrices, 60000); 
     </script>
 </body>
 </html>
