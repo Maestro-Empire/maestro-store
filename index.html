@@ -1,57 +1,106 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المايسترو - قيد التطوير</title>
+    <title>AL MAESTRO - Portfolio</title>
     <style>
-        /* تنسيق الشاشة الملمومة لمنع دمار الهوامش */
-        body { 
-            background-color: #050505; color: #fff; font-family: sans-serif; 
-            display: flex; flex-direction: column; align-items: center; 
-            justify-content: center; min-height: 100vh; margin: 0; padding: 20px;
+        :root { --gold: #d4af37; --bg: #050505; --card-bg: #121212; --blue: #007bff; --green: #00ff41; }
+        body { background-color: var(--bg); color: #fff; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 15px; display: flex; flex-direction: column; align-items: center; }
+        
+        h1 { color: var(--gold); border-bottom: 2px solid var(--gold); padding-bottom: 5px; font-size: 28px; letter-spacing: 1px; margin-top: 10px; }
+        
+        /* محرك البحث الذاتي */
+        .search-container { width: 100%; max-width: 400px; margin: 20px 0; }
+        #searchInput { 
+            width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #333; 
+            background: #1a1a1a; color: #fff; text-align: center; font-size: 16px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5); outline: none;
         }
-        .container { 
-            display: flex; flex-direction: column; gap: 15px; 
-            width: 100%; max-width: 350px; /* لجم المسافات في نص الشاشة */
+        #searchInput:focus { border-color: var(--gold); }
+
+        /* حاوية الشركات (الشبكة) */
+        .grid-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
+            gap: 12px; width: 100%; max-width: 1000px; 
         }
-        .maintenance-mode {
-            text-align: center; padding: 30px; border: 2px solid #d4af37;
-            border-radius: 15px; background: #1a1a1a; margin-bottom: 20px;
+
+        .stock-card { 
+            background: var(--card-bg); border-radius: 12px; padding: 15px; 
+            text-align: center; border-bottom: 3px solid var(--blue); 
+            transition: 0.2s; text-decoration: none; color: inherit;
         }
-        h1 { color: #d4af37; margin-bottom: 10px; font-size: 28px; border-bottom: 2px solid #d4af37; padding-bottom: 5px; }
-        .card { 
-            background: #111; border-radius: 12px; padding: 20px; text-align: center; 
-            border-bottom: 4px solid #007bff; opacity: 0.5; /* باهتة لأنها في وضع الصيانة */
-        }
-        .price { font-size: 24px; color: #888; font-weight: bold; }
-        .status-tag { color: #ffc107; font-size: 14px; margin-top: 10px; }
+        .stock-card:hover { transform: scale(1.03); border-bottom-color: var(--gold); }
+        
+        .stock-name { font-size: 16px; font-weight: bold; color: var(--gold); display: block; margin-bottom: 5px; }
+        .stock-price { font-size: 22px; color: var(--green); font-weight: bold; }
+        .loading-dots { font-size: 12px; color: #555; }
     </style>
 </head>
 <body>
 
-    <div class="maintenance-mode">
-        <h1>📊 المايسترو</h1>
-        <p>جاري ضبط التنسيقات الفنية والهوامش...</p>
-        <div class="status-tag">⚠️ النظام مغلق مؤقتاً للتطوير</div>
+    <h1>AL MAESTRO</h1>
+    
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="🔍 Quick Search..." onkeyup="filterStocks()">
     </div>
 
-    <div class="container">
-        <div class="card"><div>فوري</div><div id="FWRY" class="price">---</div></div>
-        <div class="card"><div>كوبر</div><div id="COPR" class="price">---</div></div>
-        <div class="card"><div>بيلتون</div><div id="BTFH" class="price">---</div></div>
-    </div>
+    <div class="grid-container" id="marketGrid">
+        </div>
 
     <script>
-        /* -------------------------------------------------------
-           البيانات الفنية (محفوظة وجاهزة)
-           المفتاح: 3adc6418870349b1967765352590456b
-           ------------------------------------------------------- */
+        const apiKey = "3adc6418870349b1967765352590456b";
         
-        // ملاحظة للمطورة (أنا): تم تعطيل أمر "fetch" حالياً بناءً على طلب المايسترو
-        // للبدء في العرض لاحقاً، سنقوم بتفعيل الدوال البرمجية هنا.
-        
-        console.log("تم حفظ المفتاح بنجاح.. الصفحة في وضع الانتظار.");
+        // قائمة الـ 35 شركة (30 القدام + 5 الجداد)
+        const stocks = [
+            "FWRY", "COPR", "BTFH", "ABUK", "TMGH", "SWDY", "EKHO", "ETEL", "MFOT", "HELI", 
+            "AMOC", "ESRS", "JUFO", "ORAS", "CIRA", "PHDC", "MNHD", "EAST", "ALCN", "SKPC",
+            "ADIB", "COMI", "ORWE", "CANA", "EGAL", "ISPH", "RMDA", "BINV", "EFIH", "ORHD",
+            "OCIC", "HRHO", "AUTO", "CCAP", "CLHO"
+        ];
+
+        const grid = document.getElementById('marketGrid');
+
+        // بناء الكروت برمجياً عشان الزحمة
+        stocks.forEach(s => {
+            const card = document.createElement('div');
+            card.className = 'stock-card';
+            card.setAttribute('data-name', s);
+            card.innerHTML = `
+                <span class="stock-name">${s}</span>
+                <div id="${s}" class="stock-price loading-dots">Loading...</div>
+                <small style="color:#444; font-size:9px;">${s}.CA</small>
+            `;
+            grid.appendChild(card);
+        });
+
+        async function refreshPrices() {
+            try {
+                // تقسيم الشركات لمجموعات عشان الـ API ما يهنجش
+                const symbols = stocks.map(s => s + ".CA").join(',');
+                const res = await fetch(`https://api.twelvedata.com/price?symbol=${symbols}&apikey=${apiKey}`);
+                const data = await res.json();
+
+                stocks.forEach(s => {
+                    const ticker = s + ".CA";
+                    if (data[ticker] && data[ticker].price) {
+                        document.getElementById(s).innerText = parseFloat(data[ticker].price).toFixed(2);
+                    }
+                });
+            } catch (e) { console.log("Market is closed or limit reached"); }
+        }
+
+        function filterStocks() {
+            let input = document.getElementById('searchInput').value.toUpperCase();
+            let cards = document.getElementsByClassName('stock-card');
+            for (let card of cards) {
+                card.style.display = card.getAttribute('data-name').includes(input) ? "" : "none";
+            }
+        }
+
+        refreshPrices();
+        setInterval(refreshPrices, 60000);
     </script>
 </body>
 </html>
