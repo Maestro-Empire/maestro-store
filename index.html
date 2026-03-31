@@ -1,14 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Maestro | المايسترو</title>
+    <style>
+        /* التنسيق الملكي للمايسترو */
+        body {
+            background-color: #000; /* أسود فخم */
+            color: #d4af37; /* ذهبي */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-<header class="header-container">
-    <div class="bg-letter">H</div>
-    <h1 class="brand-name">THE MAESTRO</h1>
-</header>
+        /* الهيدر واللوجو */
+        .header {
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            width: 100%;
+        }
+        .bg-h {
+            font-size: 200px;
+            color: #111; /* حرف H خفي ورا الكلام */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            font-weight: bold;
+        }
+        .brand-name {
+            font-size: 50px;
+            letter-spacing: 10px;
+            margin: 0;
+            text-transform: uppercase;
+        }
 
-<section class="products-grid">
-    <div class="product-card">
-        <img src="رابط_صورة_النظارة_1.jpg" alt="Maestro Glass 1">
-        <h3>موديل المايسترو 1</h3>
-        <p>فخامة بلا حدود</p>
+        /* شبكة عرض الـ 10 نظارات */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            padding: 40px;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        /* كارت النظارة */
+        .card {
+            background: #050505;
+            border: 1px solid #1a1a1a;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            transition: 0.4s;
+        }
+        .card:hover {
+            border-color: #d4af37;
+            transform: translateY(-5px);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border-bottom: 2px solid #d4af37;
+            margin-bottom: 15px;
+        }
+        .card h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="bg-h">H</div>
+        <h1 class="brand-name">THE MAESTRO</h1>
     </div>
-    
-    </section>
+
+    <div class="grid">
+        <div class="card"><img src="رابط_1" alt="Maestro 1"><h3>موديل 1</h3></div>
+        <div class="card"><img src="رابط_2" alt="Maestro 2"><h3>موديل 2</h3></div>
+        <div class="card"><img src="رابط_3" alt="Maestro 3"><h3>موديل 3</h3></div>
+        <div class="card"><img src="رابط_4" alt="Maestro 4"><h3>موديل 4</h3></div>
+        <div class="card"><img src="رابط_5" alt="Maestro 5"><h3>موديل 5</h3></div>
+        <div class="card"><img src="رابط_6" alt="Maestro 6"><h3>موديل 6</h3></div>
+        <div class="card"><img src="رابط_7" alt="Maestro 7"><h3>موديل 7</h3></div>
+        <div class="card"><img src="رابط_8" alt="Maestro 8"><h3>موديل 8</h3></div>
+        <div class="card"><img src="رابط_9" alt="Maestro 9"><h3>موديل 9</h3></div>
+        <div class="card"><img src="رابط_10" alt="Maestro 10"><h3>موديل 10</h3></div>
+    </div>
+
+</body>
+</html>
