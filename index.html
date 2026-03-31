@@ -1,59 +1,72 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>رادار المايسترو للبورصة</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رادار المايسترو مؤمن عاصم</title>
     <style>
-        body { font-family: Arial, sans-serif; background-color: #1a1a1a; color: white; text-align: center; padding: 20px; }
-        .dashboard { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .card { background: #2d2d2d; border-radius: 15px; padding: 20px; width: 200px; border-bottom: 5px solid #007bff; }
-        .price { font-size: 24px; color: #00ff00; font-weight: bold; margin: 10px 0; }
-        .symbol { font-size: 18px; color: #aaaaaa; }
+        body { background-color: #0d0d0d; color: #e0e0e0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
+        h1 { font-size: 24px; margin-bottom: 30px; display: flex; align-items: center; gap: 10px; color: #d4af37; }
+        .container { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; padding: 10px; }
+        .card { background: #1a1a1a; border-radius: 15px; padding: 25px; width: 220px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.5); border-bottom: 4px solid #0056b3; transition: transform 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .name { font-size: 20px; font-weight: bold; margin-bottom: 5px; color: #ffffff; }
+        .symbol { font-size: 14px; color: #888; margin-bottom: 15px; letter-spacing: 1px; }
+        .price { font-size: 26px; color: #00ff41; font-weight: bold; }
+        .loading { font-size: 18px; color: #00ff41; animation: blink 1.5s infinite; }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
     </style>
 </head>
 <body>
 
     <h1>📊 رادار المايسترو مؤمن عاصم</h1>
-    <div class="dashboard">
+
+    <div class="container">
         <div class="card">
-            <h3>فوري</h3>
+            <div class="name">فوري</div>
             <div class="symbol">FWRY.CA</div>
-            <div id="price-fwry" class="price">جاري التحميل...</div>
+            <div id="FWRY" class="price loading">...جاري التحميل</div>
         </div>
+
         <div class="card">
-            <h3>كوبر</h3>
+            <div class="name">كوبر</div>
             <div class="symbol">COPR.CA</div>
-            <div id="price-copr" class="price">جاري التحميل...</div>
+            <div id="COPR" class="price loading">...جاري التحميل</div>
         </div>
+
         <div class="card">
-            <h3>بيلتون</h3>
+            <div class="name">بيلتون</div>
             <div class="symbol">BTFH.CA</div>
-            <div id="price-btfh" class="price">جاري التحميل...</div>
+            <div id="BTFH" class="price loading">...جاري التحميل</div>
         </div>
     </div>
 
     <script>
-        // ده المفتاح اللي لسه مطلعينه سوا يا مايسترو
-        const apiKey = "37774136952d43109da33116817290b5"; 
-        
-        async function getPrices() {
-            const symbols = "FWRY,COPR,BTFH"; // رموز الأسهم
+        // المفتاح الخاص بك الذي استخرجناه من حسابك
+        const MY_API_KEY = "37774136952d43109da33116817290b5"; 
+        const symbols = "FWRY,COPR,BTFH";
+
+        async function updateRadar() {
             try {
-                const response = await fetch(`https://api.twelvedata.com/price?symbol=${symbols}&apikey=${apiKey}`);
+                const response = await fetch(`https://api.twelvedata.com/price?symbol=${symbols}&apikey=${MY_API_KEY}`);
                 const data = await response.json();
-                
-                // تحديث الأسعار في الصفحة
-                if(data.FWRY) document.getElementById('price-fwry').innerText = data.FWRY.price + " EGP";
-                if(data.COPR) document.getElementById('price-copr').innerText = data.COPR.price + " EGP";
-                if(data.BTFH) document.getElementById('price-btfh').innerText = data.BTFH.price + " EGP";
+
+                // تحديث العناصر بالأسعار الحقيقية
+                Object.keys(data).forEach(s => {
+                    const element = document.getElementById(s);
+                    if (element && data[s].price) {
+                        element.innerText = parseFloat(data[s].price).toFixed(2) + " EGP";
+                        element.classList.remove('loading');
+                    }
+                });
             } catch (error) {
-                console.error("خطأ في جلب الأسعار:", error);
+                console.error("عذراً يا مايسترو، حدث خطأ في الاتصال:", error);
             }
         }
 
-        // تحديث الأسعار كل دقيقة
-        getPrices();
-        setInterval(getPrices, 60000);
+        // تشغيل التحديث فوراً ثم كل دقيقة
+        updateRadar();
+        setInterval(updateRadar, 60000); 
     </script>
 </body>
 </html>
