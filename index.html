@@ -3,121 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Maestro | Official Lookbook 2026</title>
+    <title>The Maestro | المجلة الرسمية</title>
     <style>
-        body { background-color: #000; color: #d4af37; font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; flex-direction: column; align-items: center; }
-        .header { text-align: center; padding: 100px 20px; position: relative; width: 100%; overflow: hidden; }
-        .bg-h { font-size: clamp(200px, 45vw, 350px); color: #0a0a0a; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: -1; font-weight: 900; }
-        .brand-name { font-size: clamp(30px, 10vw, 65px); letter-spacing: 15px; margin: 0; font-weight: bold; text-shadow: 0 0 20px rgba(212,175,55,0.3); }
-        .section-title { font-size: 26px; margin: 60px 0 30px; border-bottom: 1px solid #d4af37; padding-bottom: 15px; width: 80%; text-align: center; color: #fff; letter-spacing: 5px; text-transform: uppercase; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; padding: 20px; width: 90%; max-width: 1400px; }
-        .card { background: #050505; border: 1px solid #1a1a1a; padding: 20px; border-radius: 15px; text-align: center; transition: 0.5s; position: relative; overflow: hidden; }
-        .card:hover { border-color: #d4af37; transform: translateY(-10px); box-shadow: 0 10px 30px rgba(212,175,55,0.15); }
-        .card img { width: 100%; height: 260px; object-fit: cover; border-radius: 10px; border-bottom: 3px solid #d4af37; margin-bottom: 20px; }
-        .product-name { font-size: 20px; color: #fff; margin: 10px 0; font-weight: bold; letter-spacing: 1px; }
-        .specs { color: #888; font-size: 14px; line-height: 1.8; margin-bottom: 20px; text-align: right; padding: 0 15px; }
-        .spec-item b { color: #d4af37; }
-        .interaction { display: flex; justify-content: center; align-items: center; gap: 10px; padding-top: 15px; border-top: 1px solid #111; }
-        .heart { font-size: 24px; color: #333; cursor: pointer; transition: 0.3s; }
-        .heart:hover { color: #d4af37; transform: scale(1.2); }
-    </style>
-</head>
-<body>
-
-    <div class="header">
-        <div class="bg-h">H</div>
-        <h1 class="brand-name">THE MAESTRO</h1>
-    </div>
-
-    <h2 class="section-title">النظارات | EYEWEAR</h2>
-    <div class="grid">
-        <script>
-            const glassImages = [
-                "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600",
-                "https://images.unsplash.com/photo-1511499767390-a73c99a65f24?w=600",
-                "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=600",
-                "https://images.unsplash.com/photo-1577803645773-f96470509666?w=600",
-                "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=600",
-                "https://images.unsplash.com/photo-1608296695146-257a814070b4?w=600",
-                "https://images.unsplash.com/photo-1625591339762-430a3047d6ca?w=600",
-                "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=600",
-                "https://images.unsplash.com/photo-1509695507497-903c140c43b0?w=600",
-                "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600"
-            ];
-            for(let i=0; i<10; i++) {
-                document.write(`
-                <div class="card">
-                    <img src="${glassImages[i]}">
-                    <div class="product-name">MAESTRO M${i+1}</div>
-                    <div class="specs">
-                        <span class="spec-item"><b>العدسات:</b> Polarized UV400 فاخرة</span><br>
-                        <span class="spec-item"><b>الإطار:</b> تيتانيوم مرن خفيف الوزن</span>
-                    </div>
-                    <div class="interaction"><span class="heart">❤</span> <small>إعجاب</small></div>
-                </div>`);
-            }
-        </script>
-    </div>
-
-    <h2 class="section-title">الساعات | TIMEPIECES</h2>
-    <div class="grid">
-        <script>
-            const watchImages = [
-                "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600",
-                "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=600",
-                "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?w=600",
-                "https://images.unsplash.com/photo-1518131683832-613d5b03577d?w=600",
-                "https://images.unsplash.com/photo-1604242692760-2f7b0c26856d?w=600",
-                "https://images.unsplash.com/photo-1509048196583-6807947ef31e?w=600",
-                "https://images.unsplash.com/photo-1523170335258-f5ed11844a1e?w=600",
-                "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600",
-                "https://images.unsplash.com/photo-1585123334904-845d60e97b29?w=600",
-                "https://images.unsplash.com/photo-1526045431048-f857369aba09?w=600"
-            ];
-            for(let i=0; i<10; i++) {
-                document.write(`
-                <div class="card">
-                    <img src="${watchImages[i]}">
-                    <div class="product-name">ROYAL MASTER W${i+1}</div>
-                    <div class="specs">
-                        <span class="spec-item"><b>الماكينة:</b> Automatic سويسرية دقيقة</span><br>
-                        <span class="spec-item"><b>الزجاج:</b> Sapphire ضد الخدش</span>
-                    </div>
-                    <div class="interaction"><span class="heart">❤</span> <small>إعجاب</small></div>
-                </div>`);
-            }
-        </script>
-    </div>
-
-    <h2 class="section-title">العطور | LUXURY SCENTS</h2>
-    <div class="grid">
-        <script>
-            const perfumeImages = [
-                "https://images.unsplash.com/photo-1541643600914-78b084683601?w=600",
-                "https://images.unsplash.com/photo-1594035910387-fea47794261f?w=600",
-                "https://images.unsplash.com/photo-1587017539504-67cfbddac569?w=600",
-                "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=600",
-                "https://images.unsplash.com/photo-1610667489569-467f3743c33d?w=600",
-                "https://images.unsplash.com/photo-1596431969018-b22e70e9b98f?w=600",
-                "https://images.unsplash.com/photo-1617897903246-7392fe5280c7?w=600",
-                "https://images.unsplash.com/photo-1557170353-288279447a16?w=600",
-                "https://images.unsplash.com/photo-1512546321121-5079a4b8682a?w=600",
-                "https://images.unsplash.com/photo-1595167098926-646e31006544?w=600"
-            ];
-            for(let i=0; i<10; i++) {
-                document.write(`
-                <div class="card">
-                    <img src="${perfumeImages[i]}">
-                    <div class="product-name">GOLDEN AURA P${i+1}</div>
-                    <div class="specs">
-                        <span class="spec-item"><b>الثبات:</b> تركيز فرنسي (48 ساعة)</span><br>
-                        <span class="spec-item"><b>النوتات:</b> عود ملكي وعنبر خالص</span>
-                    </div>
-                    <div class="interaction"><span class="heart">❤</span> <small>إعجاب</small></div>
-                </div>`);
-            }
-        </script>
-    </div>
-
-</body>
-</html>
+        body { background-color: #000; color: #d4af37; font-family: sans-serif; margin: 0; display: flex; flex-direction: column; align-items: center; }
+        .header { text-align: center; padding: 60px 20px; position: relative; width: 100%; }
+        .bg-h { font-size: 250px; color: #0a0a0a; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: -1; font-weight: 900; }
+        .brand-name { font-size: 50px; letter-spacing: 10px; margin: 0; font-weight: bold; }
+        .section-title { font-size: 24px; margin: 40px 0 20px; border-bottom: 2px solid #d4af37; padding-bottom: 10px; width: 80%; text-align: center; color: #fff; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 20px; width: 95%; max-width: 1200px; }
+        .card { background: #080808; border: 1px solid #1a1a1a; padding: 15px; border-radius: 10px; text-align
