@@ -5,5 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Maestro | المايسترو</title>
     <style>
-        body { background-color: #000; color: #d4af37; font-family: sans-serif; margin: 0; display: flex; flex-direction: column; align-items: center; }
-        .header { text-align: center; padding
+        body { background-color: #000; color: #d4af37; font-family: sans-serif; margin: 0; text-align: center; }
+        .header { padding: 60px 20px; position: relative; overflow: hidden; }
+        .bg-h { font-size: 200px; color: #111; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: -1; font-weight: bold; }
+        .brand-name { font-size: 45px; letter-spacing: 8px; margin: 0; text-transform: uppercase; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 30px; }
+        .card { background: #050505; border: 1px solid #1a1a1a; padding: 15px; border-radius: 12px; transition: 0.3s; }
+        .card:hover { border-color: #d4af37; transform: translateY(-5px); }
+        .card img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; border-bottom: 3px solid #d4af37; margin-bottom: 15px; }
+        h3 { font-size: 18px; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="bg-h">H</div>
+        <h1 class="brand-name">THE MAESTRO</h1>
+    </div>
+
+    <div class="grid">
+        <div class="card"><img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500" alt="1"><h3>موديل المايسترو 1</h3></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1511499767390-a73c99a65f24?w=500" alt="2"><h3>موديل المايسترو 2</h3></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1577803645773-f96470509666?w=500" alt="3"><h3>موديل المايسترو 3</h3></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=500" alt="4"><h3>موديل المايسترو 4</h3></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?w=500" alt="5"><h3>موديل المايسترو 5</h3></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=500" alt="6"><h3>موديل المايسترو 6</h3></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1625591339762-430a3047d6ca?w=500" alt="7"><h3>موديل المايسترو 7</h3></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=500" alt="8"><h3>موديل المايسترو 8</h3></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1509695507497-903c140c43b0?w=500" alt="9"><h3>موديل المايسترو 9</h3></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=500" alt="10"><h3>موديل المايسترو 10</h3></div>
+    </div>
+
+</body>
+</html>
